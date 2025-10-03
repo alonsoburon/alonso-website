@@ -1,0 +1,432 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Alonso - Ingeniero de Datos" description="CV y portafolio de Alonso, especialista en ingeniería de datos, machine learning y análisis de datos.">
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Hola, soy Alonso</h1>
+        <p class="hero-subtitle">Ingeniero de Datos especializado en Machine Learning y Análisis de Datos</p>
+        <p class="hero-description">
+          Transformo datos complejos en insights accionables. Experiencia en Python, SQL, 
+          Apache Spark, y tecnologías cloud para construir pipelines de datos escalables.
+        </p>
+        <div class="hero-buttons">
+          <a href="/proyectos" class="btn btn-primary">Ver Proyectos</a>
+          <a href="/contacto" class="btn btn-secondary">Contactar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+      <h2>Habilidades Técnicas</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Lenguajes</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">Scala</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Big Data</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Apache Spark</span>
+            <span class="skill-tag">Hadoop</span>
+            <span class="skill-tag">Kafka</span>
+            <span class="skill-tag">Airflow</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Cloud & DevOps</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">GCP</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>ML & Analytics</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">Scikit-learn</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience">
+      <h2>Experiencia Profesional</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3>Senior Data Engineer</h3>
+            <p class="company">TechCorp</p>
+            <p class="period">2022 - Presente</p>
+            <ul>
+              <li>Diseñé y implementé pipelines de datos que procesan 10TB+ diarios</li>
+              <li>Lideré la migración de infraestructura on-premise a AWS</li>
+              <li>Desarrollé modelos de ML para predicción de demanda</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3>Data Engineer</h3>
+            <p class="company">DataFlow Inc.</p>
+            <p class="period">2020 - 2022</p>
+            <ul>
+              <li>Construí pipelines ETL con Apache Spark y Airflow</li>
+              <li>Optimicé consultas SQL reduciendo tiempo de ejecución en 60%</li>
+              <li>Implementé monitoreo y alertas para sistemas de datos</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3>Data Analyst</h3>
+            <p class="company">AnalyticsPro</p>
+            <p class="period">2019 - 2020</p>
+            <ul>
+              <li>Desarrollé dashboards interactivos con Tableau y Power BI</li>
+              <li>Realicé análisis estadísticos para optimización de procesos</li>
+              <li>Automaticé reportes mensuales usando Python</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Posts -->
+    <section class="recent-posts">
+      <h2>Últimos Artículos</h2>
+      <div class="posts-grid">
+        <article class="post-card">
+          <h3><a href="/blog/optimizacion-pipelines-spark">Optimización de Pipelines con Apache Spark</a></h3>
+          <p class="post-meta">15 de Enero, 2024</p>
+          <p>Estrategias avanzadas para optimizar el rendimiento de pipelines de datos en Spark, incluyendo particionado, caching y tuning de memoria.</p>
+        </article>
+        <article class="post-card">
+          <h3><a href="/blog/machine-learning-production">ML en Producción: Lecciones Aprendidas</a></h3>
+          <p class="post-meta">8 de Enero, 2024</p>
+          <p>Experiencias reales desplegando modelos de machine learning en producción, desde el desarrollo hasta el monitoreo continuo.</p>
+        </article>
+        <article class="post-card">
+          <h3><a href="/blog/data-quality-framework">Framework de Calidad de Datos</a></h3>
+          <p class="post-meta">2 de Enero, 2024</p>
+          <p>Cómo implementar un framework robusto para asegurar la calidad de datos en organizaciones de gran escala.</p>
+        </article>
+      </div>
+      <div class="text-center">
+        <a href="/blog" class="btn btn-outline">Ver Todos los Artículos</a>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      margin: -2rem -1rem 4rem -1rem;
+      border-radius: 0 0 2rem 2rem;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #667eea;
+    }
+
+    .btn-primary:hover {
+      background: #f8f9fa;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border-color: white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #667eea;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #2563eb;
+      border-color: #2563eb;
+    }
+
+    .btn-outline:hover {
+      background: #2563eb;
+      color: white;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #1f2937;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .skill-category h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: #f3f4f6;
+      color: #374151;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    /* Experience Section */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 2rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e5e7eb;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 5rem;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      left: 1.25rem;
+      top: 0.5rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: #2563eb;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: 0 0 0 4px #e5e7eb;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .timeline-content h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+    }
+
+    .company {
+      font-weight: 600;
+      color: #2563eb;
+      margin-bottom: 0.25rem;
+    }
+
+    .period {
+      color: #6b7280;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline-content li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    /* Recent Posts */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .post-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .post-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-card h3 a {
+      color: #1f2937;
+      text-decoration: none;
+    }
+
+    .post-card h3 a:hover {
+      color: #2563eb;
+    }
+
+    .post-meta {
+      color: #6b7280;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .timeline::before {
+        left: 1rem;
+      }
+
+      .timeline-item {
+        padding-left: 3rem;
+      }
+
+      .timeline-marker {
+        left: 0.25rem;
+      }
+
+      .posts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>
