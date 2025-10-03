@@ -305,11 +305,11 @@ function formatDate(dateString: string) {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 1rem;
       max-width: 1200px;
       margin: 0 auto 3rem;
       padding: 0 2rem;
+      overflow-x: auto;
     }
 
     .pipeline-node {
@@ -318,6 +318,7 @@ function formatDate(dateString: string) {
       border-radius: 12px;
       padding: 1.5rem;
       min-width: 200px;
+      flex-shrink: 0;
       transition: all 0.3s ease;
       cursor: pointer;
       position: relative;
@@ -393,6 +394,7 @@ function formatDate(dateString: string) {
       position: relative;
       min-width: 60px;
       height: 4px;
+      flex-shrink: 0;
     }
 
     .connection-line {
@@ -448,6 +450,7 @@ function formatDate(dateString: string) {
       .pipeline-container {
         flex-direction: column;
         gap: 1.5rem;
+        overflow-x: visible;
       }
       
       .pipeline-connection {
@@ -637,6 +640,8 @@ function formatDate(dateString: string) {
     };
 
     function showNodeDetails(nodeId: string) {
+      console.log('Clicked node:', nodeId); // Debug log
+      
       // Remove active class from all nodes
       document.querySelectorAll('.pipeline-node').forEach(node => {
         node.classList.remove('active');
@@ -646,6 +651,7 @@ function formatDate(dateString: string) {
       const clickedNode = document.querySelector(`[data-node="${nodeId}"]`);
       if (clickedNode) {
         clickedNode.classList.add('active');
+        console.log('Added active class to node'); // Debug log
       }
       
       // Update details
@@ -653,10 +659,19 @@ function formatDate(dateString: string) {
       if (details) {
         const titleElement = document.getElementById('detailsTitle');
         const descriptionElement = document.getElementById('detailsDescription');
-        if (titleElement) titleElement.textContent = details.title;
-        if (descriptionElement) descriptionElement.textContent = details.description;
+        if (titleElement) {
+          titleElement.textContent = details.title;
+          console.log('Updated title:', details.title); // Debug log
+        }
+        if (descriptionElement) {
+          descriptionElement.textContent = details.description;
+          console.log('Updated description'); // Debug log
+        }
       }
     }
+
+    // Make function globally available
+    (window as any).showNodeDetails = showNodeDetails;
 
     // Add some random status changes for realism
     setInterval(() => {
