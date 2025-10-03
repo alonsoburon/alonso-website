@@ -33,46 +33,90 @@ function formatDate(dateString: string) {
       </div>
     </section>
 
-    <!-- Data Pipeline Demo -->
+    <!-- Interactive Data Pipeline -->
     <section class="pipeline-demo">
-      <h2>Data Pipeline Architecture</h2>
+      <h2>Live Data Pipeline</h2>
       <div class="pipeline-container">
-        <div class="pipeline-step" data-step="1">
-          <div class="step-icon">📊</div>
-          <h3>Raw Data</h3>
-          <p>Multiple sources</p>
+        <div class="pipeline-node" data-node="source" onclick="showNodeDetails('source')">
+          <div class="node-header">
+            <div class="node-status status-success"></div>
+            <div class="node-icon">📊</div>
+          </div>
+          <div class="node-content">
+            <h3>Data Sources</h3>
+            <p>APIs • Databases • Files</p>
+            <div class="node-metrics">
+              <span class="metric">15 sources</span>
+              <span class="metric">2.3M records/min</span>
+            </div>
+          </div>
         </div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step" data-step="2">
-          <div class="step-icon">⚡</div>
-          <h3>ETL Process</h3>
-          <p>Dagster + DLT</p>
+
+        <div class="pipeline-connection">
+          <div class="connection-line"></div>
+          <div class="data-flow"></div>
         </div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step" data-step="3">
-          <div class="step-icon">🗄️</div>
-          <h3>Data Warehouse</h3>
-          <p>SQL/NoSQL</p>
+
+        <div class="pipeline-node" data-node="etl" onclick="showNodeDetails('etl')">
+          <div class="node-header">
+            <div class="node-status status-success"></div>
+            <div class="node-icon">⚡</div>
+          </div>
+          <div class="node-content">
+            <h3>ETL Engine</h3>
+            <p>Dagster • DLT • Python</p>
+            <div class="node-metrics">
+              <span class="metric">12 jobs</span>
+              <span class="metric">98% success</span>
+            </div>
+          </div>
         </div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step" data-step="4">
-          <div class="step-icon">📈</div>
-          <h3>Analytics</h3>
-          <p>Power BI</p>
+
+        <div class="pipeline-connection">
+          <div class="connection-line"></div>
+          <div class="data-flow"></div>
+        </div>
+
+        <div class="pipeline-node" data-node="warehouse" onclick="showNodeDetails('warehouse')">
+          <div class="node-header">
+            <div class="node-status status-success"></div>
+            <div class="node-icon">🗄️</div>
+          </div>
+          <div class="node-content">
+            <h3>Data Warehouse</h3>
+            <p>PostgreSQL • MongoDB</p>
+            <div class="node-metrics">
+              <span class="metric">100TB+</span>
+              <span class="metric">99.9% uptime</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipeline-connection">
+          <div class="connection-line"></div>
+          <div class="data-flow"></div>
+        </div>
+
+        <div class="pipeline-node" data-node="analytics" onclick="showNodeDetails('analytics')">
+          <div class="node-header">
+            <div class="node-status status-success"></div>
+            <div class="node-icon">📈</div>
+          </div>
+          <div class="node-content">
+            <h3>Analytics Layer</h3>
+            <p>Power BI • Metabase</p>
+            <div class="node-metrics">
+              <span class="metric">25 dashboards</span>
+              <span class="metric">5min latency</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="pipeline-stats">
-        <div class="stat">
-          <span class="stat-number">100TB+</span>
-          <span class="stat-label">Daily Processing</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">99.9%</span>
-          <span class="stat-label">Uptime</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">5min</span>
-          <span class="stat-label">Avg Latency</span>
+
+      <div class="pipeline-details" id="nodeDetails">
+        <div class="details-content">
+          <h3 id="detailsTitle">Click a node to see details</h3>
+          <p id="detailsDescription">Select any pipeline component to view its configuration and performance metrics.</p>
         </div>
       </div>
     </section>
@@ -242,17 +286,18 @@ function formatDate(dateString: string) {
       color: #1f2937;
     }
 
-    /* Pipeline Demo Section */
+    /* Interactive Pipeline Section */
     .pipeline-demo {
       padding: 4rem 0;
-      background: #f8fafc;
+      background: #0f172a;
+      color: white;
     }
 
     .pipeline-demo h2 {
       text-align: center;
       font-size: 2.5rem;
       font-weight: 700;
-      color: #1f2937;
+      color: #f1f5f9;
       margin-bottom: 3rem;
     }
 
@@ -261,75 +306,155 @@ function formatDate(dateString: string) {
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 2rem;
-      max-width: 1000px;
+      gap: 1rem;
+      max-width: 1200px;
       margin: 0 auto 3rem;
       padding: 0 2rem;
     }
 
-    .pipeline-step {
-      background: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      text-align: center;
+    .pipeline-node {
+      background: #1e293b;
+      border: 2px solid #334155;
+      border-radius: 12px;
+      padding: 1.5rem;
       min-width: 200px;
       transition: all 0.3s ease;
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
     }
 
-    .pipeline-step:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    .pipeline-node:hover {
+      border-color: #10b981;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+      transform: translateY(-2px);
     }
 
-    .step-icon {
-      font-size: 3rem;
+    .pipeline-node.active {
+      border-color: #10b981;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+    }
+
+    .node-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
       margin-bottom: 1rem;
     }
 
-    .pipeline-step h3 {
-      font-size: 1.25rem;
+    .node-status {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .status-success {
+      background: #10b981;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    }
+
+    .node-icon {
+      font-size: 1.5rem;
+    }
+
+    .node-content h3 {
+      font-size: 1.125rem;
       font-weight: 600;
+      color: #f1f5f9;
       margin-bottom: 0.5rem;
-      color: #1f2937;
     }
 
-    .pipeline-step p {
-      color: #6b7280;
+    .node-content p {
+      color: #94a3b8;
       font-size: 0.875rem;
+      margin-bottom: 1rem;
     }
 
-    .pipeline-arrow {
-      font-size: 2rem;
-      color: #2563eb;
-      font-weight: bold;
-    }
-
-    .pipeline-stats {
+    .node-metrics {
       display: flex;
-      justify-content: center;
-      gap: 4rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 0.25rem;
     }
 
-    .stat {
+    .metric {
+      background: #334155;
+      color: #10b981;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
       text-align: center;
     }
 
-    .stat-number {
-      display: block;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #2563eb;
-      margin-bottom: 0.5rem;
+    .pipeline-connection {
+      display: flex;
+      align-items: center;
+      position: relative;
+      min-width: 60px;
+      height: 4px;
     }
 
-    .stat-label {
-      color: #6b7280;
-      font-size: 0.875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+    .connection-line {
+      width: 100%;
+      height: 2px;
+      background: #334155;
+      position: relative;
+    }
+
+    .data-flow {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      animation: flow 3s linear infinite;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+    }
+
+    .pipeline-details {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .details-content h3 {
+      color: #f1f5f9;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .details-content p {
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    @keyframes flow {
+      0% { left: -10px; }
+      100% { left: 100%; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .pipeline-container {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .pipeline-connection {
+        transform: rotate(90deg);
+        min-width: 4px;
+        height: 40px;
+      }
     }
 
     /* Experience Section */
@@ -490,4 +615,54 @@ function formatDate(dateString: string) {
       }
     }
   </style>
+
+  <script>
+    const nodeDetails = {
+      source: {
+        title: "Data Sources",
+        description: "Integrated 15+ data sources including REST APIs, database connections, and file systems. Processing 2.3M records per minute with real-time validation and error handling. Built custom connectors for legacy systems and implemented automated data quality checks."
+      },
+      etl: {
+        title: "ETL Engine",
+        description: "Orchestrated 12 Dagster jobs using DLT for automated data transformations. Achieved 98% success rate with comprehensive monitoring and alerting. Implemented incremental processing and data lineage tracking for compliance requirements."
+      },
+      warehouse: {
+        title: "Data Warehouse",
+        description: "Managed 100TB+ of structured and unstructured data across PostgreSQL and MongoDB clusters. Maintained 99.9% uptime with automated backups and disaster recovery. Optimized query performance reducing average response time by 60%."
+      },
+      analytics: {
+        title: "Analytics Layer",
+        description: "Built 25+ interactive dashboards in Power BI and Metabase serving 200+ users. Achieved 5-minute data latency from source to dashboard. Implemented row-level security and automated report distribution."
+      }
+    };
+
+    function showNodeDetails(nodeId) {
+      // Remove active class from all nodes
+      document.querySelectorAll('.pipeline-node').forEach(node => {
+        node.classList.remove('active');
+      });
+      
+      // Add active class to clicked node
+      document.querySelector(`[data-node="${nodeId}"]`).classList.add('active');
+      
+      // Update details
+      const details = nodeDetails[nodeId];
+      document.getElementById('detailsTitle').textContent = details.title;
+      document.getElementById('detailsDescription').textContent = details.description;
+    }
+
+    // Add some random status changes for realism
+    setInterval(() => {
+      const nodes = document.querySelectorAll('.pipeline-node');
+      nodes.forEach(node => {
+        if (Math.random() < 0.1) { // 10% chance
+          const status = node.querySelector('.node-status');
+          status.style.animation = 'none';
+          setTimeout(() => {
+            status.style.animation = 'pulse 2s infinite';
+          }, 100);
+        }
+      });
+    }, 5000);
+  </script>
 </Layout>
