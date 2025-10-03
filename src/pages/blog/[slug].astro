@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
 
 // Datos de ejemplo para los posts del blog
 const posts = {
@@ -186,13 +185,6 @@ df.profile()</code></pre>
   }
 };
 
-export async function getStaticPaths() {
-  return Object.keys(posts).map((slug) => ({
-    params: { slug },
-    props: { post: posts[slug] }
-  }));
-}
-
 const { slug } = Astro.params;
 const post = posts[slug];
 
@@ -209,6 +201,13 @@ function formatDate(dateString: string) {
   });
 }
 ---
+
+export async function getStaticPaths() {
+  return Object.keys(posts).map((slug) => ({
+    params: { slug },
+    props: { post: posts[slug] }
+  }));
+}
 
 <Layout title={`${post.title} - Blog de Alonso`} description={`${post.title} - Artículo sobre ingeniería de datos y análisis.`}>
   <div class="container">
