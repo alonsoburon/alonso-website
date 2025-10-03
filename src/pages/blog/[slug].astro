@@ -1,203 +1,17 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
-// Datos de ejemplo para los posts del blog
-const posts = {
-  'optimizacion-pipelines-spark': {
-    title: 'Optimización de Pipelines con Apache Spark',
-    date: '2024-01-15',
-    tags: ['Apache Spark', 'Big Data', 'Optimización'],
-    content: `
-      <p>Apache Spark es una de las herramientas más poderosas para el procesamiento de datos a gran escala. Sin embargo, para obtener el máximo rendimiento, es crucial entender y aplicar técnicas de optimización específicas.</p>
-
-      <h2>Particionado Estratégico</h2>
-      <p>El particionado es fundamental para el rendimiento en Spark. Un particionado adecuado puede reducir significativamente el tiempo de procesamiento:</p>
-      
-      <ul>
-        <li><strong>Particionado por clave:</strong> Agrupa datos relacionados en la misma partición</li>
-        <li><strong>Número óptimo de particiones:</strong> Generalmente 2-3x el número de cores disponibles</li>
-        <li><strong>Evitar particionado excesivo:</strong> Puede causar overhead de comunicación</li>
-      </ul>
-
-      <h2>Caching Inteligente</h2>
-      <p>El caching puede mejorar dramáticamente el rendimiento cuando los datos se reutilizan:</p>
-
-      <pre><code># Cache en memoria para acceso frecuente
-df.cache()
-
-# Cache en disco para datasets grandes
-df.persist(StorageLevel.DISK_ONLY)
-
-# Cache híbrido para balance óptimo
-df.persist(StorageLevel.MEMORY_AND_DISK)</code></pre>
-
-      <h2>Tuning de Memoria</h2>
-      <p>La configuración de memoria es crítica para el rendimiento:</p>
-
-      <ul>
-        <li><strong>spark.executor.memory:</strong> Memoria total del executor</li>
-        <li><strong>spark.executor.memoryFraction:</strong> Fracción para caching</li>
-        <li><strong>spark.sql.shuffle.partitions:</strong> Número de particiones para shuffles</li>
-      </ul>
-
-      <h2>Mejores Prácticas</h2>
-      <p>Algunas recomendaciones adicionales para optimizar pipelines:</p>
-
-      <ol>
-        <li>Usar DataFrames en lugar de RDDs cuando sea posible</li>
-        <li>Evitar operaciones costosas como collect() en producción</li>
-        <li>Monitorear el uso de recursos con Spark UI</li>
-        <li>Implementar checkpointing para jobs largos</li>
-      </ol>
-
-      <p>La optimización de pipelines de Spark es un proceso iterativo que requiere monitoreo continuo y ajustes basados en métricas específicas de cada workload.</p>
-    `
-  },
-  'machine-learning-production': {
-    title: 'ML en Producción: Lecciones Aprendidas',
-    date: '2024-01-08',
-    tags: ['Machine Learning', 'Producción', 'DevOps'],
-    content: `
-      <p>Llevar modelos de machine learning a producción es uno de los desafíos más complejos en el desarrollo de sistemas de datos. Aquí comparto las lecciones más importantes que he aprendido.</p>
-
-      <h2>1. Diseño de Pipeline de ML</h2>
-      <p>Un pipeline de ML en producción debe ser robusto, escalable y mantenible:</p>
-
-      <ul>
-        <li><strong>Separación de responsabilidades:</strong> Entrenamiento, validación y inferencia deben estar separados</li>
-        <li><strong>Versionado de modelos:</strong> Implementar un sistema de versionado robusto</li>
-        <li><strong>Feature stores:</strong> Centralizar la gestión de features</li>
-      </ul>
-
-      <h2>2. Monitoreo y Observabilidad</h2>
-      <p>El monitoreo en ML va más allá de métricas tradicionales:</p>
-
-      <pre><code># Métricas clave a monitorear
-- Data drift detection
-- Model performance degradation
-- Feature distribution changes
-- Prediction latency
-- Throughput metrics</code></pre>
-
-      <h2>3. Gestión de Datos</h2>
-      <p>La calidad y consistencia de los datos es fundamental:</p>
-
-      <ul>
-        <li>Implementar validación de datos en tiempo real</li>
-        <li>Manejar datos faltantes de manera consistente</li>
-        <li>Documentar transformaciones de datos</li>
-      </ul>
-
-      <h2>4. Deployment Strategies</h2>
-      <p>Estrategias efectivas para desplegar modelos:</p>
-
-      <ol>
-        <li><strong>Blue-Green Deployment:</strong> Para cambios sin downtime</li>
-        <li><strong>Canary Releases:</strong> Para validar modelos gradualmente</li>
-        <li><strong>A/B Testing:</strong> Para comparar rendimiento</li>
-      </ol>
-
-      <h2>5. Automatización y CI/CD</h2>
-      <p>La automatización es clave para la eficiencia:</p>
-
-      <ul>
-        <li>Automatizar entrenamiento de modelos</li>
-        <li>Implementar tests automatizados</li>
-        <li>Pipeline de CI/CD específico para ML</li>
-      </ul>
-
-      <p>La clave del éxito en ML en producción es pensar en el sistema completo, no solo en el modelo. La infraestructura, el monitoreo y los procesos son tan importantes como la precisión del modelo.</p>
-    `
-  },
-  'data-quality-framework': {
-    title: 'Framework de Calidad de Datos',
-    date: '2024-01-02',
-    tags: ['Data Quality', 'Framework', 'Best Practices'],
-    content: `
-      <p>La calidad de datos es fundamental para el éxito de cualquier iniciativa de datos. Un framework robusto de calidad de datos puede prevenir problemas costosos y mejorar la confianza en los datos.</p>
-
-      <h2>Dimensiones de Calidad de Datos</h2>
-      <p>Un framework completo debe cubrir estas dimensiones clave:</p>
-
-      <ul>
-        <li><strong>Completitud:</strong> ¿Faltan valores críticos?</li>
-        <li><strong>Precisión:</strong> ¿Los datos son correctos?</li>
-        <li><strong>Consistencia:</strong> ¿Los datos son coherentes entre sistemas?</li>
-        <li><strong>Validez:</strong> ¿Los datos cumplen con las reglas de negocio?</li>
-        <li><strong>Unicidad:</strong> ¿Hay duplicados no deseados?</li>
-        <li><strong>Actualidad:</strong> ¿Los datos están actualizados?</li>
-      </ul>
-
-      <h2>Arquitectura del Framework</h2>
-      <p>Componentes esenciales de un framework de calidad de datos:</p>
-
-      <h3>1. Data Profiling</h3>
-      <p>Análisis automático de las características de los datos:</p>
-
-      <pre><code># Ejemplo de profiling con Great Expectations
-import great_expectations as ge
-
-df = ge.read_csv("data.csv")
-df.profile()</code></pre>
-
-      <h3>2. Data Validation</h3>
-      <p>Validación automática contra reglas predefinidas:</p>
-
-      <ul>
-        <li>Validación de esquemas</li>
-        <li>Validación de rangos</li>
-        <li>Validación de formatos</li>
-        <li>Validación de relaciones</li>
-      </ul>
-
-      <h3>3. Data Monitoring</h3>
-      <p>Monitoreo continuo de la calidad de datos:</p>
-
-      <ul>
-        <li>Alertas automáticas</li>
-        <li>Dashboards de calidad</li>
-        <li>Métricas de tendencia</li>
-      </ul>
-
-      <h2>Implementación Práctica</h2>
-      <p>Pasos para implementar el framework:</p>
-
-      <ol>
-        <li><strong>Inventario de datos:</strong> Catalogar todos los datasets críticos</li>
-        <li><strong>Definir reglas:</strong> Establecer reglas de calidad específicas</li>
-        <li><strong>Automatizar validaciones:</strong> Implementar checks automatizados</li>
-        <li><strong>Establecer SLAs:</strong> Definir niveles de servicio para calidad</li>
-        <li><strong>Monitoreo continuo:</strong> Implementar alertas y dashboards</li>
-      </ol>
-
-      <h2>Herramientas Recomendadas</h2>
-      <p>Algunas herramientas útiles para implementar el framework:</p>
-
-      <ul>
-        <li><strong>Great Expectations:</strong> Para validación de datos</li>
-        <li><strong>Apache Griffin:</strong> Para monitoreo de calidad</li>
-        <li><strong>DataHub:</strong> Para catalogación de datos</li>
-        <li><strong>dbt:</strong> Para transformaciones y tests</li>
-      </ul>
-
-      <p>Un framework de calidad de datos bien implementado no solo mejora la confianza en los datos, sino que también acelera el desarrollo y reduce los costos de mantenimiento.</p>
-    `
-  }
-};
-
 export async function getStaticPaths() {
-  return Object.keys(posts).map((slug) => ({
-    params: { slug },
-    props: { post: posts[slug] }
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
   }));
 }
 
-const { slug } = Astro.params;
-const post = posts[slug];
-
-if (!post) {
-  return Astro.redirect('/404');
-}
+const { post } = Astro.props;
+const { Content } = await post.render();
 
 function formatDate(dateString: string) {
   const date = new Date(dateString);
@@ -209,22 +23,24 @@ function formatDate(dateString: string) {
 }
 ---
 
-<Layout title={`${post.title} - Blog de Alonso`} description={`${post.title} - Artículo sobre ingeniería de datos y análisis.`}>
+<Layout title={`${post.data.title} - Blog de Alonso`} description={`${post.data.title} - Artículo sobre ingeniería de datos y análisis.`}>
   <div class="container">
     <article class="blog-post">
       <header class="post-header">
         <div class="post-meta">
-          <time datetime={post.date}>{formatDate(post.date)}</time>
+          <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
           <div class="post-tags">
-            {post.tags.map((tag) => (
+            {post.data.tags.map((tag: string) => (
               <span class="tag">{tag}</span>
             ))}
           </div>
         </div>
-        <h1 class="post-title">{post.title}</h1>
+        <h1 class="post-title">{post.data.title}</h1>
       </header>
 
-      <div class="post-content" set:html={post.content}></div>
+      <div class="post-content">
+        <Content />
+      </div>
 
       <footer class="post-footer">
         <div class="post-navigation">

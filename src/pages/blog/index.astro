@@ -1,51 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
-// Datos de ejemplo para los posts del blog
-const posts = [
-  {
-    slug: 'optimizacion-pipelines-spark',
-    title: 'Optimización de Pipelines con Apache Spark',
-    date: '2024-01-15',
-    excerpt: 'Estrategias avanzadas para optimizar el rendimiento de pipelines de datos en Spark, incluyendo particionado, caching y tuning de memoria.',
-    tags: ['Apache Spark', 'Big Data', 'Optimización']
-  },
-  {
-    slug: 'machine-learning-production',
-    title: 'ML en Producción: Lecciones Aprendidas',
-    date: '2024-01-08',
-    excerpt: 'Experiencias reales desplegando modelos de machine learning en producción, desde el desarrollo hasta el monitoreo continuo.',
-    tags: ['Machine Learning', 'Producción', 'DevOps']
-  },
-  {
-    slug: 'data-quality-framework',
-    title: 'Framework de Calidad de Datos',
-    date: '2024-01-02',
-    excerpt: 'Cómo implementar un framework robusto para asegurar la calidad de datos en organizaciones de gran escala.',
-    tags: ['Data Quality', 'Framework', 'Best Practices']
-  },
-  {
-    slug: 'streaming-data-architecture',
-    title: 'Arquitectura de Datos en Tiempo Real',
-    date: '2023-12-20',
-    excerpt: 'Diseñando sistemas de procesamiento de datos en tiempo real usando Kafka, Spark Streaming y tecnologías cloud.',
-    tags: ['Streaming', 'Kafka', 'Arquitectura']
-  },
-  {
-    slug: 'data-governance-strategy',
-    title: 'Estrategia de Gobernanza de Datos',
-    date: '2023-12-10',
-    excerpt: 'Implementando una estrategia efectiva de gobernanza de datos que balancea acceso, seguridad y cumplimiento.',
-    tags: ['Data Governance', 'Estrategia', 'Compliance']
-  },
-  {
-    slug: 'cost-optimization-cloud',
-    title: 'Optimización de Costos en la Nube',
-    date: '2023-11-28',
-    excerpt: 'Técnicas prácticas para reducir costos en infraestructura cloud sin comprometer el rendimiento.',
-    tags: ['Cloud', 'Cost Optimization', 'AWS']
-  }
-];
+const posts = await getCollection('blog');
 
 // Función para formatear fechas
 function formatDate(dateString: string) {
@@ -73,17 +30,17 @@ function formatDate(dateString: string) {
         {posts.map((post) => (
           <article class="post-card">
             <div class="post-meta">
-              <time datetime={post.date}>{formatDate(post.date)}</time>
+              <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
               <div class="post-tags">
-                {post.tags.map((tag) => (
+                {post.data.tags.map((tag) => (
                   <span class="tag">{tag}</span>
                 ))}
               </div>
             </div>
             <h2 class="post-title">
-              <a href={`/blog/${post.slug}`}>{post.title}</a>
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
             </h2>
-            <p class="post-excerpt">{post.excerpt}</p>
+            <p class="post-excerpt">{post.data.description || 'Artículo sobre ingeniería de datos y análisis.'}</p>
             <a href={`/blog/${post.slug}`} class="read-more">Leer más →</a>
           </article>
         ))}

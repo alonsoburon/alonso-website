@@ -1,5 +1,18 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const posts = await getCollection('blog');
+const recentPosts = posts.slice(0, 3);
+
+function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
 ---
 
 <Layout title="Alonso - Ingeniero de Datos" description="CV y portafolio de Alonso, especialista en ingeniería de datos, machine learning y análisis de datos.">
@@ -113,21 +126,13 @@ import Layout from '../layouts/Layout.astro';
     <section class="recent-posts">
       <h2>Últimos Artículos</h2>
       <div class="posts-grid">
-        <article class="post-card">
-          <h3><a href="/blog/optimizacion-pipelines-spark">Optimización de Pipelines con Apache Spark</a></h3>
-          <p class="post-meta">15 de Enero, 2024</p>
-          <p>Estrategias avanzadas para optimizar el rendimiento de pipelines de datos en Spark, incluyendo particionado, caching y tuning de memoria.</p>
-        </article>
-        <article class="post-card">
-          <h3><a href="/blog/machine-learning-production">ML en Producción: Lecciones Aprendidas</a></h3>
-          <p class="post-meta">8 de Enero, 2024</p>
-          <p>Experiencias reales desplegando modelos de machine learning en producción, desde el desarrollo hasta el monitoreo continuo.</p>
-        </article>
-        <article class="post-card">
-          <h3><a href="/blog/data-quality-framework">Framework de Calidad de Datos</a></h3>
-          <p class="post-meta">2 de Enero, 2024</p>
-          <p>Cómo implementar un framework robusto para asegurar la calidad de datos en organizaciones de gran escala.</p>
-        </article>
+        {recentPosts.map((post) => (
+          <article class="post-card">
+            <h3><a href={`/blog/${post.slug}`}>{post.data.title}</a></h3>
+            <p class="post-meta">{formatDate(post.data.date)}</p>
+            <p>{post.data.description || 'Artículo sobre ingeniería de datos y análisis.'}</p>
+          </article>
+        ))}
       </div>
       <div class="text-center">
         <a href="/blog" class="btn btn-outline">Ver Todos los Artículos</a>
