@@ -20,78 +20,66 @@ function formatDate(dateString: string) {
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Hola, soy Alonso</h1>
-        <p class="hero-subtitle">Jefe de Célula - Lead Data Engineer</p>
+        <h1>Data Engineering Lead</h1>
+        <p class="hero-subtitle">Building scalable data infrastructure for LATAM</p>
         <p class="hero-description">
-          Soy un nerd de la tecnología con pasión por la automatización y por hacer mi trabajo cada vez más eficiente.
-          Actualmente estoy estudiando para obtener mi título en Ciencia de Datos, mientras trabajo full time como ingeniero de BI y datos.
-          Me encanta usar Linux para todo tipo de soluciones: dualbooteo Arch y Windows.
+          Leading data engineering teams to create the most efficient data extraction platform in Latin America.
+          Specialized in automation, ETL optimization, and building robust data pipelines that process 100TB+ daily.
         </p>
         <div class="hero-buttons">
-          <a href="/proyectos" class="btn btn-primary">Ver Proyectos</a>
-          <a href="/contacto" class="btn btn-secondary">Contactar</a>
+          <a href="/proyectos" class="btn btn-primary">View Work</a>
+          <a href="/contacto" class="btn btn-secondary">Get in Touch</a>
         </div>
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="skills">
-      <h2>Habilidades Técnicas</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>Lenguajes</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">Stata</span>
-          </div>
+    <!-- Data Pipeline Demo -->
+    <section class="pipeline-demo">
+      <h2>Data Pipeline Architecture</h2>
+      <div class="pipeline-container">
+        <div class="pipeline-step" data-step="1">
+          <div class="step-icon">📊</div>
+          <h3>Raw Data</h3>
+          <p>Multiple sources</p>
         </div>
-        <div class="skill-category">
-          <h3>Data Engineering</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Dagster</span>
-            <span class="skill-tag">DLT</span>
-            <span class="skill-tag">FastAPI</span>
-            <span class="skill-tag">Arquitectura de Software</span>
-          </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step" data-step="2">
+          <div class="step-icon">⚡</div>
+          <h3>ETL Process</h3>
+          <p>Dagster + DLT</p>
         </div>
-        <div class="skill-category">
-          <h3>Sistemas</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">Arch Linux</span>
-            <span class="skill-tag">Ubuntu</span>
-          </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step" data-step="3">
+          <div class="step-icon">🗄️</div>
+          <h3>Data Warehouse</h3>
+          <p>SQL/NoSQL</p>
         </div>
-        <div class="skill-category">
-          <h3>Bases de Datos</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">SQL Databases</span>
-            <span class="skill-tag">NoSQL Databases</span>
-          </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step" data-step="4">
+          <div class="step-icon">📈</div>
+          <h3>Analytics</h3>
+          <p>Power BI</p>
         </div>
-        <div class="skill-category">
-          <h3>Gestión</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Team Management</span>
-            <span class="skill-tag">Liderazgo</span>
-            <span class="skill-tag">Coordinación</span>
-          </div>
+      </div>
+      <div class="pipeline-stats">
+        <div class="stat">
+          <span class="stat-number">100TB+</span>
+          <span class="stat-label">Daily Processing</span>
         </div>
-        <div class="skill-category">
-          <h3>Adicionales</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Full-Stack</span>
-            <span class="skill-tag">Música</span>
-            <span class="skill-tag">Audiovisual</span>
-          </div>
+        <div class="stat">
+          <span class="stat-number">99.9%</span>
+          <span class="stat-label">Uptime</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">5min</span>
+          <span class="stat-label">Avg Latency</span>
         </div>
       </div>
     </section>
 
     <!-- Experience Section -->
     <section class="experience">
-      <h2>Experiencia Profesional</h2>
+      <h2>Professional Experience</h2>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-marker"></div>
@@ -138,7 +126,7 @@ function formatDate(dateString: string) {
 
     <!-- Recent Posts -->
     <section class="recent-posts">
-      <h2>Últimos Artículos</h2>
+      <h2>Latest Articles</h2>
       <div class="posts-grid">
         {recentPosts.map((post) => (
           <article class="post-card">
@@ -149,7 +137,7 @@ function formatDate(dateString: string) {
         ))}
       </div>
       <div class="text-center">
-        <a href="/blog" class="btn btn-outline">Ver Todos los Artículos</a>
+        <a href="/blog" class="btn btn-outline">View All Articles</a>
       </div>
     </section>
   </div>
@@ -254,40 +242,94 @@ function formatDate(dateString: string) {
       color: #1f2937;
     }
 
-    /* Skills Section */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+    /* Pipeline Demo Section */
+    .pipeline-demo {
+      padding: 4rem 0;
+      background: #f8fafc;
     }
 
-    .skill-category {
+    .pipeline-demo h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 3rem;
+    }
+
+    .pipeline-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+
+    .pipeline-step {
       background: white;
       padding: 2rem;
       border-radius: 1rem;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      min-width: 200px;
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
 
-    .skill-category h3 {
+    .pipeline-step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .step-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .pipeline-step h3 {
       font-size: 1.25rem;
       font-weight: 600;
-      margin-bottom: 1rem;
-      color: #2563eb;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
     }
 
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .skill-tag {
-      background: #f3f4f6;
-      color: #374151;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
+    .pipeline-step p {
+      color: #6b7280;
       font-size: 0.875rem;
-      font-weight: 500;
+    }
+
+    .pipeline-arrow {
+      font-size: 2rem;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    .pipeline-stats {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: #6b7280;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     /* Experience Section */
