@@ -617,7 +617,7 @@ function formatDate(dateString: string) {
   </style>
 
   <script>
-    const nodeDetails = {
+    const nodeDetails: Record<string, { title: string; description: string }> = {
       source: {
         title: "Data Sources",
         description: "Integrated 15+ data sources including REST APIs, database connections, and file systems. Processing 2.3M records per minute with real-time validation and error handling. Built custom connectors for legacy systems and implemented automated data quality checks."
@@ -636,19 +636,26 @@ function formatDate(dateString: string) {
       }
     };
 
-    function showNodeDetails(nodeId) {
+    function showNodeDetails(nodeId: string) {
       // Remove active class from all nodes
       document.querySelectorAll('.pipeline-node').forEach(node => {
         node.classList.remove('active');
       });
       
       // Add active class to clicked node
-      document.querySelector(`[data-node="${nodeId}"]`).classList.add('active');
+      const clickedNode = document.querySelector(`[data-node="${nodeId}"]`);
+      if (clickedNode) {
+        clickedNode.classList.add('active');
+      }
       
       // Update details
       const details = nodeDetails[nodeId];
-      document.getElementById('detailsTitle').textContent = details.title;
-      document.getElementById('detailsDescription').textContent = details.description;
+      if (details) {
+        const titleElement = document.getElementById('detailsTitle');
+        const descriptionElement = document.getElementById('detailsDescription');
+        if (titleElement) titleElement.textContent = details.title;
+        if (descriptionElement) descriptionElement.textContent = details.description;
+      }
     }
 
     // Add some random status changes for realism
@@ -656,11 +663,13 @@ function formatDate(dateString: string) {
       const nodes = document.querySelectorAll('.pipeline-node');
       nodes.forEach(node => {
         if (Math.random() < 0.1) { // 10% chance
-          const status = node.querySelector('.node-status');
-          status.style.animation = 'none';
-          setTimeout(() => {
-            status.style.animation = 'pulse 2s infinite';
-          }, 100);
+          const status = node.querySelector('.node-status') as HTMLElement;
+          if (status) {
+            status.style.animation = 'none';
+            setTimeout(() => {
+              status.style.animation = 'pulse 2s infinite';
+            }, 100);
+          }
         }
       });
     }, 5000);
