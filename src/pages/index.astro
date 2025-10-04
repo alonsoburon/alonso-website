@@ -657,12 +657,23 @@ function formatDate(dateString: string) {
     }
   </style>
 
-  <script>
-    import cytoscape from 'cytoscape';
-    // @ts-ignore
-    import dagre from 'cytoscape-dagre';
-    
-    cytoscape.use(dagre);
+  <script is:inline>
+    // Load Cytoscape.js from CDN
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/cytoscape@3.33.1/dist/cytoscape.min.js';
+    script.onload = function() {
+      // Load Dagre layout
+      const dagreScript = document.createElement('script');
+      dagreScript.src = 'https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js';
+      dagreScript.onload = function() {
+        // Register Dagre layout
+        // @ts-ignore
+        cytoscape.use(dagre);
+        initCytoscape();
+      };
+      document.head.appendChild(dagreScript);
+    };
+    document.head.appendChild(script);
 
     const skillDetails = {
       'python': {
@@ -717,6 +728,7 @@ function formatDate(dateString: string) {
 
     // Initialize Cytoscape
     function initCytoscape() {
+      // @ts-ignore
       const cy = cytoscape({
         container: document.getElementById('cy'),
         
@@ -799,7 +811,6 @@ function formatDate(dateString: string) {
         
         layout: {
           name: 'dagre',
-          // @ts-ignore
           rankDir: 'TB',
           spacingFactor: 1.5,
           nodeSep: 50,
@@ -816,8 +827,8 @@ function formatDate(dateString: string) {
       });
 
       // Make function globally available
-      function showSkillDetails(skillId: string) {
-        const details = skillDetails[skillId as keyof typeof skillDetails];
+      function showSkillDetails(skillId) {
+        const details = skillDetails[skillId];
         if (details) {
           const titleElement = document.getElementById('skillTitle');
           const descriptionElement = document.getElementById('skillDescription');
@@ -830,15 +841,7 @@ function formatDate(dateString: string) {
         }
       }
 
-      // @ts-ignore
       window.showSkillDetails = showSkillDetails;
-    }
-
-    // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initCytoscape);
-    } else {
-      initCytoscape();
     }
   </script>
 </Layout>
