@@ -354,7 +354,7 @@ function formatDate(dateString: string) {
       margin: 0 auto 3rem;
       padding: 0 1rem;
       position: relative;
-      z-index: 1;
+      z-index: 0;
     }
 
     .pipeline-node {
@@ -370,7 +370,7 @@ function formatDate(dateString: string) {
       flex-shrink: 0;
       backdrop-filter: blur(10px);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      z-index: 2;
+      z-index: 1;
     }
 
     .pipeline-node::before {
@@ -489,7 +489,7 @@ function formatDate(dateString: string) {
       width: 80px;
       height: 6px;
       flex-shrink: 0;
-      z-index: 1;
+      z-index: -2;
     }
 
     .connection-line {
