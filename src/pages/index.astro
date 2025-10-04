@@ -17,17 +17,6 @@ function formatDate(dateString: string) {
 
 <Layout title="Alonso Burón - Portfolio" description="Lead Data Engineer and Composer">
   <div class="container">
-    <!-- Ultra Compact Hero -->
-    <section class="hero">
-      <div class="hero-content">
-        <p class="hero-subtitle">Data Engineering Lead</p>
-        <div class="hero-buttons">
-          <a href="/blog" class="btn btn-primary">Read My Story</a>
-          <a href="/contact" class="btn btn-secondary">Get In Touch</a>
-        </div>
-      </div>
-    </section>
-
     <!-- CV Content -->
     <div class="cv-content">
       <!-- Skills -->
@@ -179,35 +168,6 @@ function formatDate(dateString: string) {
   </div>
 
   <style>
-    /* Ultra Compact Hero */
-    .hero {
-      text-align: center;
-      padding: 1rem 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      margin: -2rem 0 1rem 0;
-    }
-
-    .hero-content {
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.1rem;
-      font-weight: 300;
-      margin-bottom: 0.75rem;
-      opacity: 0.9;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
     /* Buttons */
     .btn {
       display: inline-block;
@@ -218,27 +178,6 @@ function formatDate(dateString: string) {
       transition: all 0.3s;
       border: 2px solid transparent;
       font-size: 0.9rem;
-    }
-
-    .btn-primary {
-      background: white;
-      color: #667eea;
-    }
-
-    .btn-primary:hover {
-      background: #f8f9fa;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: white;
-      border-color: white;
-    }
-
-    .btn-secondary:hover {
-      background: white;
-      color: #667eea;
     }
 
     .btn-outline {
@@ -437,10 +376,6 @@ function formatDate(dateString: string) {
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero-subtitle {
-        font-size: 1rem;
-      }
-
       .skills-grid {
         grid-template-columns: 1fr;
       }
