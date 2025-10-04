@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.14.1"
+    "astro": "^5.14.1",
+    "cytoscape": "^3.33.1",
+    "cytoscape-dagre": "^2.5.0"
   }
 }
