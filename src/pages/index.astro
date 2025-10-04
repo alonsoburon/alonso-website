@@ -38,6 +38,13 @@ function formatDate(dateString: string) {
     <section class="skills-pipeline">
       <h2>Skills Pipeline</h2>
       <div id="cy" class="pipeline-container"></div>
+      
+      <div class="pipeline-details" id="skillDetails">
+        <div class="details-content">
+          <h3 id="skillTitle">Click a skill to see details</h3>
+          <p id="skillDescription">Select any skill to see how it contributes to my expertise as a Data Engineering Lead.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Recent Posts -->
@@ -216,6 +223,37 @@ function formatDate(dateString: string) {
     #cy {
       width: 100%;
       height: 100%;
+    }
+
+    .pipeline-details {
+      background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+      border: 1px solid #475569;
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 800px;
+      margin: 2rem auto 0;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .pipeline-details:hover {
+      border-color: #58a6ff;
+      box-shadow: 0 12px 40px rgba(88, 166, 255, 0.2);
+    }
+
+    .details-content h3 {
+      color: #f1f5f9;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .details-content p {
+      color: #94a3b8;
+      line-height: 1.7;
+      font-size: 1rem;
     }
 
     .pipeline-node {
@@ -621,6 +659,7 @@ function formatDate(dateString: string) {
 
   <script>
     import cytoscape from 'cytoscape';
+    // @ts-ignore
     import dagre from 'cytoscape-dagre';
     
     cytoscape.use(dagre);
@@ -721,7 +760,7 @@ function formatDate(dateString: string) {
               'text-valign': 'center',
               'text-halign': 'center',
               'font-size': '12px',
-              'font-weight': '600',
+              'font-weight': 600,
               'width': '120px',
               'height': '80px',
               'shape': 'round-rectangle',
@@ -760,6 +799,7 @@ function formatDate(dateString: string) {
         
         layout: {
           name: 'dagre',
+          // @ts-ignore
           rankDir: 'TB',
           spacingFactor: 1.5,
           nodeSep: 50,
@@ -776,8 +816,8 @@ function formatDate(dateString: string) {
       });
 
       // Make function globally available
-      window.showSkillDetails = function(skillId) {
-        const details = skillDetails[skillId];
+      function showSkillDetails(skillId: string) {
+        const details = skillDetails[skillId as keyof typeof skillDetails];
         if (details) {
           const titleElement = document.getElementById('skillTitle');
           const descriptionElement = document.getElementById('skillDescription');
@@ -788,7 +828,10 @@ function formatDate(dateString: string) {
             descriptionElement.textContent = details.description;
           }
         }
-      };
+      }
+
+      // @ts-ignore
+      window.showSkillDetails = showSkillDetails;
     });
   </script>
 </Layout>
