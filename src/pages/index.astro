@@ -18,135 +18,140 @@ function formatDate(dateString: string) {
 <Layout title="Alonso Burón - Portfolio" description="Lead Data Engineer and Composer">
   <div class="container">
     <!-- CV Content -->
-    <div class="cv-content">
-      <!-- Skills -->
-      <section class="skills-section" style="text-align: center;">
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3 style="color: rgb(98, 195, 98);">Programming & Data</h3>
-            <div class="skill-list">
-              <span>Python (Expert)</span>
-              <span>SQL (Expert)</span>
-              <span>PyArrow</span>
-              <span>Pandas</span>
+    <div class="cv-grid">
+      <!-- Left Column: Skills + Education -->
+      <div class="cv-left">
+        <!-- Skills -->
+        <section class="skills-section" style="text-align: center;">
+          <h2>Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3 style="color: rgb(98, 195, 98);">Programming & Data</h3>
+              <div class="skill-list">
+                <span>Python (Expert)</span>
+                <span>SQL (Expert)</span>
+                <span>PyArrow</span>
+                <span>Pandas</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3 style="color: rgb(98, 195, 98);">Data Engineering</h3>
+              <div class="skill-list">
+                <span>ETL/ELT Pipelines</span>
+                <span>Data Warehousing</span>
+                <span>Apache Spark</span>
+                <span>Data Quality</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3 style="color: rgb(98, 195, 98);">Cloud & Infrastructure</h3>
+              <div class="skill-list">
+                <span>AWS</span>
+                <span>Docker</span>
+                <span>Kubernetes</span>
+                <span>CI/CD</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3 style="color: rgb(98, 195, 98);">Leadership & Management</h3>
+              <div class="skill-list">
+                <span>Team Leadership</span>
+                <span>Mentoring</span>
+                <span>Project Management</span>
+                <span>Agile</span>
+              </div>
             </div>
           </div>
-          <div class="skill-category">
-            <h3 style="color: rgb(98, 195, 98);">Data Engineering</h3>
-            <div class="skill-list">
-              <span>ETL/ELT Pipelines</span>
-              <span>Data Warehousing</span>
-              <span>Apache Spark</span>
-              <span>Data Quality</span>
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3 style="color: rgb(98, 195, 98);">Cloud & Infrastructure</h3>
-            <div class="skill-list">
-              <span>AWS</span>
-              <span>Docker</span>
-              <span>Kubernetes</span>
-              <span>CI/CD</span>
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3 style="color: rgb(98, 195, 98);">Leadership & Management</h3>
-            <div class="skill-list">
-              <span>Team Leadership</span>
-              <span>Mentoring</span>
-              <span>Project Management</span>
-              <span>Agile</span>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Education -->
-      <section class="education-section">
-        <h2>Education</h2>
-        <div class="education-list">
-          <div class="edu-item">
-            <div class="edu-header">
-              <h3>Business Engineering</h3>
-              <span class="edu-period">2018 - 2022</span>
+        <!-- Education -->
+        <section class="education-section">
+          <h2>Education</h2>
+          <div class="education-list">
+            <div class="edu-item">
+              <div class="edu-header">
+                <h3>Business Engineering</h3>
+                <span class="edu-period">2018 - 2022</span>
+              </div>
+              <div class="edu-institution">Universidad de Chile</div>
+              <p>Specialization in data analysis and economics. Major in Data Analysis.</p>
             </div>
-            <div class="edu-institution">Universidad de Chile</div>
-            <p>Specialization in data analysis and economics. Major in Data Analysis.</p>
-          </div>
-          <div class="edu-item">
-            <div class="edu-header">
-              <h3>Technical Certifications</h3>
-              <span class="edu-period">2020 - 2023</span>
+            <div class="edu-item">
+              <div class="edu-header">
+                <h3>Technical Certifications</h3>
+                <span class="edu-period">2020 - 2023</span>
+              </div>
+              <div class="edu-institution">AWS, Google Cloud, Microsoft</div>
+              <p>AWS Solutions Architect, Google Cloud Data Engineer, Power BI Data Analyst.</p>
             </div>
-            <div class="edu-institution">AWS, Google Cloud, Microsoft</div>
-            <p>AWS Solutions Architect, Google Cloud Data Engineer, Power BI Data Analyst.</p>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
-      <!-- Projects -->
-      <section class="projects-section">
-        <h2>Successful Projects</h2>
-        <div class="projects-list">
-          <div class="project-item">
-            <div class="project-header">
-              <h3>Warp Data Platform</h3>
-              <span class="project-period">2024-10 - Now</span>
+      <!-- Right Column: Projects -->
+      <div class="cv-right">
+        <section class="projects-section">
+          <h2>Successful Projects</h2>
+          <div class="projects-list">
+            <div class="project-item">
+              <div class="project-header">
+                <h3>Warp Data Platform</h3>
+                <span class="project-period">2024-10 - Now</span>
+              </div>
+              <div class="project-role">Data Engineering Lead</div>
+              <p>Enterprise data platform processing millions of daily records for LATAM operations.</p>
+              <div class="project-achievements">
+                <span>70% reduction in processing time</span>
+                <span>Scalability for 5 LATAM countries</span>
+              </div>
+              <div class="project-tech">
+                <span>Python</span>
+                <span>PostgreSQL</span>
+                <span>Power BI</span>
+                <span>AWS</span>
+              </div>
             </div>
-            <div class="project-role">Data Engineering Lead</div>
-            <p>Enterprise data platform processing millions of daily records for LATAM operations.</p>
-            <div class="project-achievements">
-              <span>70% reduction in processing time</span>
-              <span>Scalability for 5 LATAM countries</span>
-            </div>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>PostgreSQL</span>
-              <span>Power BI</span>
-              <span>AWS</span>
-            </div>
-          </div>
 
-          <div class="project-item">
-            <div class="project-header">
-              <h3>Data Engineering Cell</h3>
-              <span class="project-period">2022 - 2023</span>
+            <div class="project-item">
+              <div class="project-header">
+                <h3>Data Engineering Cell</h3>
+                <span class="project-period">2022 - 2023</span>
+              </div>
+              <div class="project-role">Team Lead & Founder</div>
+              <p>Creation and leadership of the first Data Engineering team at Datawalt.</p>
+              <div class="project-achievements">
+                <span>Formation of 4-engineer team</span>
+                <span>Implementation of agile methodologies</span>
+              </div>
+              <div class="project-tech">
+                <span>Leadership</span>
+                <span>Agile</span>
+                <span>Mentoring</span>
+                <span>Process Design</span>
+              </div>
             </div>
-            <div class="project-role">Team Lead & Founder</div>
-            <p>Creation and leadership of the first Data Engineering team at Datawalt.</p>
-            <div class="project-achievements">
-              <span>Formation of 4-engineer team</span>
-              <span>Implementation of agile methodologies</span>
-            </div>
-            <div class="project-tech">
-              <span>Leadership</span>
-              <span>Agile</span>
-              <span>Mentoring</span>
-              <span>Process Design</span>
-            </div>
-          </div>
 
-          <div class="project-item">
-            <div class="project-header">
-              <h3>Automated ETL Pipelines</h3>
-              <span class="project-period">2021 - 2022</span>
-            </div>
-            <div class="project-role">Data Engineer</div>
-            <p>Development of automated ETL pipelines for financial data processing.</p>
-            <div class="project-achievements">
-              <span>90% process automation</span>
-              <span>85% improvement in data quality</span>
-            </div>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>PyArrow</span>
-              <span>Delta Tables</span>
-              <span>Automation</span>
+            <div class="project-item">
+              <div class="project-header">
+                <h3>Automated ETL Pipelines</h3>
+                <span class="project-period">2021 - 2022</span>
+              </div>
+              <div class="project-role">Data Engineer</div>
+              <p>Development of automated ETL pipelines for financial data processing.</p>
+              <div class="project-achievements">
+                <span>90% process automation</span>
+                <span>85% improvement in data quality</span>
+              </div>
+              <div class="project-tech">
+                <span>Python</span>
+                <span>PyArrow</span>
+                <span>Delta Tables</span>
+                <span>Automation</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
 
     <!-- Recent Posts -->
@@ -191,11 +196,20 @@ function formatDate(dateString: string) {
       color: white;
     }
 
-    /* CV Content */
-    .cv-content {
-      max-width: 1000px;
+    /* CV Grid Layout */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
+    }
+
+    .cv-left, .cv-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
     /* Sections */
@@ -375,6 +389,13 @@ function formatDate(dateString: string) {
     }
 
     /* Responsive */
+    @media (max-width: 1024px) {
+      .cv-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
     @media (max-width: 768px) {
       .skills-grid {
         grid-template-columns: 1fr;
