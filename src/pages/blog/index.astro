@@ -32,7 +32,7 @@ function formatDate(dateString: string) {
             <div class="post-meta">
               <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
               <div class="post-tags">
-                {post.data.tags.map((tag) => (
+                {post.data.tags?.map((tag) => (
                   <span class="tag">{tag}</span>
                 ))}
               </div>
