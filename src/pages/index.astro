@@ -207,11 +207,20 @@ function formatDate(dateString: string) {
       align-items: stretch;
     }
 
+    .cv-left {
+      min-width: 0;
+    }
+
+    .cv-right {
+      min-width: 0;
+    }
+
     .cv-left, .cv-right {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       flex: 1;
+      width: 100%;
     }
 
     /* Sections */
@@ -233,7 +242,7 @@ function formatDate(dateString: string) {
     /* Skills Section */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 0.75rem;
       flex: 1;
     }
