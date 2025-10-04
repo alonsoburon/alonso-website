@@ -51,7 +51,7 @@ function formatDate(dateString: string) {
                 <span>Kubernetes</span>
                 <span>CI/CD</span>
               </div>
-            </div>
+            </div> 
             <div class="skill-category">
               <h3 style="color: rgb(98, 195, 98);">Leadership & Management</h3>
               <div class="skill-list">
@@ -204,6 +204,7 @@ function formatDate(dateString: string) {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
+      align-items: stretch;
     }
 
     .cv-left, .cv-right {
@@ -425,14 +426,17 @@ function formatDate(dateString: string) {
     /* Recent Posts */
     .posts-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
       margin-bottom: 2rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .post-card {
       background: #161b22;
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 1rem;
       box-shadow: 0 4px 6px rgba(0,0,0,0.3);
       border: 1px solid #21262d;
