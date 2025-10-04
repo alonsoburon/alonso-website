@@ -34,93 +34,6 @@ function formatDate(dateString: string) {
       </div>
     </section>
 
-    <!-- Interactive Personal Journey -->
-    <section class="pipeline-demo">
-      <h2>My Journey</h2>
-      <div class="pipeline-container">
-        <div class="pipeline-node" data-node="music" onclick="showNodeDetails('music')">
-          <div class="node-header">
-            <div class="node-status status-success"></div>
-            <div class="node-icon">🎵</div>
-          </div>
-          <div class="node-content">
-            <h3>Music Student</h3>
-            <p>Composition • Piano • $15/month</p>
-            <div class="node-metrics">
-              <span class="metric">Struggling artist</span>
-              <span class="metric">Zero prospects</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pipeline-connection">
-          <div class="connection-line"></div>
-          <div class="data-flow"></div>
-        </div>
-
-        <div class="pipeline-node" data-node="tutoring" onclick="showNodeDetails('tutoring')">
-          <div class="node-header">
-            <div class="node-status status-success"></div>
-            <div class="node-icon">📚</div>
-          </div>
-          <div class="node-content">
-            <h3>Stata Tutor</h3>
-            <p>Girlfriend's homework • Python • Free money</p>
-            <div class="node-metrics">
-              <span class="metric">Half the class</span>
-              <span class="metric">Sick graphs</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pipeline-connection">
-          <div class="connection-line"></div>
-          <div class="data-flow"></div>
-        </div>
-
-        <div class="pipeline-node" data-node="intern" onclick="showNodeDetails('intern')">
-          <div class="node-header">
-            <div class="node-status status-success"></div>
-            <div class="node-icon">💼</div>
-          </div>
-          <div class="node-content">
-            <h3>BI Intern</h3>
-            <p>2/10 interview • ChatGPT • Hired anyway</p>
-            <div class="node-metrics">
-              <span class="metric">Music degree</span>
-              <span class="metric">Zero experience</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pipeline-connection">
-          <div class="connection-line"></div>
-          <div class="data-flow"></div>
-        </div>
-
-        <div class="pipeline-node" data-node="lead" onclick="showNodeDetails('lead')">
-          <div class="node-header">
-            <div class="node-status status-success"></div>
-            <div class="node-icon">🚀</div>
-          </div>
-          <div class="node-content">
-            <h3>Team Lead</h3>
-            <p>Datawalt • LATAM • Millions of records</p>
-            <div class="node-metrics">
-              <span class="metric">First data cell</span>
-              <span class="metric">Still figuring it out</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pipeline-details" id="nodeDetails">
-        <div class="details-content">
-          <h3 id="detailsTitle">Click a node to see details</h3>
-          <p id="detailsDescription">Select any stage of my journey to see what actually happened.</p>
-        </div>
-      </div>
-    </section>
 
     <!-- Skills Pipeline Section -->
     <section class="pipeline-demo">
@@ -817,24 +730,6 @@ function formatDate(dateString: string) {
   </style>
 
   <script is:inline>
-    const nodeDetails = {
-      music: {
-        title: "Music Student",
-        description: "I was studying Music Composition, writing scores for student films and piss-poor videogame developers while earning a magnificent average of 15 bucks a month. Living under my mom's roof with zero job prospects and no idea what I wanted to do with my life. The future looked bleak, to say the least."
-      },
-      tutoring: {
-        title: "Stata Tutor",
-        description: "My girlfriend was losing her mind over her Econometrics class and Stata software. I grabbed a pirated copy of Stata MP and started helping her with homework. Before I knew it, I was tutoring half the class, teaching them Python and making sick graphs with ggplot2. It felt like free money compared to music gigs."
-      },
-      intern: {
-        title: "BI Intern",
-        description: "I applied to Datawalt with a music degree and zero experience. The interview was hilarious - they asked about my hobbies and video games. The skill test was a disaster: I got 2/10 questions right. I took it home, hammered it out with ChatGPT, and sent it back three hours later. They hired me anyway."
-      },
-      lead: {
-        title: "Team Lead",
-        description: "Within a year, I was leading Datawalt's first Data Engineering Cell, processing millions of records daily across LATAM. I built Warp, our custom data platform, and demonstrated a scalability-first mindset that caught the C-suite's attention. Still figuring it out, but making it work."
-      }
-    };
 
     const skillDetails = {
       'data-engineering': {
@@ -863,36 +758,6 @@ function formatDate(dateString: string) {
       }
     };
 
-    function showNodeDetails(nodeId) {
-      console.log('Clicked node:', nodeId);
-      
-      // Remove active class from all nodes
-      document.querySelectorAll('.pipeline-node').forEach(node => {
-        node.classList.remove('active');
-      });
-      
-      // Add active class to clicked node
-      const clickedNode = document.querySelector(`[data-node="${nodeId}"]`);
-      if (clickedNode) {
-        clickedNode.classList.add('active');
-        console.log('Added active class to node');
-      }
-      
-      // Update details
-      const details = nodeDetails[nodeId];
-      if (details) {
-        const titleElement = document.getElementById('detailsTitle');
-        const descriptionElement = document.getElementById('detailsDescription');
-        if (titleElement) {
-          titleElement.textContent = details.title;
-          console.log('Updated title:', details.title);
-        }
-        if (descriptionElement) {
-          descriptionElement.textContent = details.description;
-          console.log('Updated description');
-        }
-      }
-    }
 
     function showSkillDetails(skillId) {
       console.log('Clicked skill:', skillId);
@@ -925,8 +790,7 @@ function formatDate(dateString: string) {
       }
     }
 
-    // Make functions globally available
-    window.showNodeDetails = showNodeDetails;
+    // Make function globally available
     window.showSkillDetails = showSkillDetails;
 
     // Add some random status changes for realism
