@@ -34,21 +34,21 @@ function formatDate(dateString: string) {
       </div>
     </section>
 
-    <!-- Interactive Data Pipeline -->
+    <!-- Interactive Personal Journey -->
     <section class="pipeline-demo">
-      <h2>Live Data Pipeline</h2>
+      <h2>My Journey</h2>
       <div class="pipeline-container">
-        <div class="pipeline-node" data-node="source" onclick="showNodeDetails('source')">
+        <div class="pipeline-node" data-node="music" onclick="showNodeDetails('music')">
           <div class="node-header">
             <div class="node-status status-success"></div>
-            <div class="node-icon">📊</div>
+            <div class="node-icon">🎵</div>
           </div>
           <div class="node-content">
-            <h3>Data Sources</h3>
-            <p>APIs • Databases • Files</p>
+            <h3>Music Student</h3>
+            <p>Composition • Piano • $15/month</p>
             <div class="node-metrics">
-              <span class="metric">Multiple sources</span>
-              <span class="metric">Real-time validation</span>
+              <span class="metric">Struggling artist</span>
+              <span class="metric">Zero prospects</span>
             </div>
           </div>
         </div>
@@ -58,17 +58,17 @@ function formatDate(dateString: string) {
           <div class="data-flow"></div>
         </div>
 
-        <div class="pipeline-node" data-node="etl" onclick="showNodeDetails('etl')">
+        <div class="pipeline-node" data-node="tutoring" onclick="showNodeDetails('tutoring')">
           <div class="node-header">
             <div class="node-status status-success"></div>
-            <div class="node-icon">⚡</div>
+            <div class="node-icon">📚</div>
           </div>
           <div class="node-content">
-            <h3>ETL Engine</h3>
-            <p>Python • Power BI • Automation</p>
+            <h3>Stata Tutor</h3>
+            <p>Girlfriend's homework • Python • Free money</p>
             <div class="node-metrics">
-              <span class="metric">Custom software</span>
-              <span class="metric">40% more efficient</span>
+              <span class="metric">Half the class</span>
+              <span class="metric">Sick graphs</span>
             </div>
           </div>
         </div>
@@ -78,17 +78,17 @@ function formatDate(dateString: string) {
           <div class="data-flow"></div>
         </div>
 
-        <div class="pipeline-node" data-node="warehouse" onclick="showNodeDetails('warehouse')">
+        <div class="pipeline-node" data-node="intern" onclick="showNodeDetails('intern')">
           <div class="node-header">
             <div class="node-status status-success"></div>
-            <div class="node-icon">🗄️</div>
+            <div class="node-icon">💼</div>
           </div>
           <div class="node-content">
-            <h3>Data Warehouse</h3>
-            <p>PostgreSQL • Unified Architecture</p>
+            <h3>BI Intern</h3>
+            <p>2/10 interview • ChatGPT • Hired anyway</p>
             <div class="node-metrics">
-              <span class="metric">Scalable</span>
-              <span class="metric">High availability</span>
+              <span class="metric">Music degree</span>
+              <span class="metric">Zero experience</span>
             </div>
           </div>
         </div>
@@ -98,17 +98,17 @@ function formatDate(dateString: string) {
           <div class="data-flow"></div>
         </div>
 
-        <div class="pipeline-node" data-node="analytics" onclick="showNodeDetails('analytics')">
+        <div class="pipeline-node" data-node="lead" onclick="showNodeDetails('lead')">
           <div class="node-header">
             <div class="node-status status-success"></div>
-            <div class="node-icon">📈</div>
+            <div class="node-icon">🚀</div>
           </div>
           <div class="node-content">
-            <h3>Analytics Layer</h3>
-            <p>Power BI • Dashboards • KPIs</p>
+            <h3>Team Lead</h3>
+            <p>Datawalt • LATAM • Millions of records</p>
             <div class="node-metrics">
-              <span class="metric">Multiple dashboards</span>
-              <span class="metric">Automated reports</span>
+              <span class="metric">First data cell</span>
+              <span class="metric">Still figuring it out</span>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ function formatDate(dateString: string) {
       <div class="pipeline-details" id="nodeDetails">
         <div class="details-content">
           <h3 id="detailsTitle">Click a node to see details</h3>
-          <p id="detailsDescription">Select any pipeline component to view its configuration and performance metrics.</p>
+          <p id="detailsDescription">Select any stage of my journey to see what actually happened.</p>
         </div>
       </div>
     </section>
@@ -313,11 +313,26 @@ function formatDate(dateString: string) {
       color: #f0f6fc;
     }
 
-    /* Interactive Pipeline Section */
+    /* Interactive Personal Journey Section */
     .pipeline-demo {
       padding: 4rem 0;
-      background: #0f172a;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
       color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pipeline-demo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(88, 166, 255, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+      pointer-events: none;
     }
 
     .pipeline-demo h2 {
@@ -326,40 +341,62 @@ function formatDate(dateString: string) {
       font-weight: 700;
       color: #f1f5f9;
       margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
     }
 
     .pipeline-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 1rem;
       max-width: 1400px;
       margin: 0 auto 3rem;
       padding: 0 1rem;
+      position: relative;
+      z-index: 1;
     }
 
     .pipeline-node {
-      background: #1e293b;
-      border: 2px solid #334155;
-      border-radius: 12px;
-      padding: 1.25rem;
+      background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+      border: 2px solid #475569;
+      border-radius: 16px;
+      padding: 1.5rem;
       width: 280px;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
       position: relative;
       overflow: hidden;
       flex-shrink: 0;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .pipeline-node::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .pipeline-node:hover::before {
+      left: 100%;
     }
 
     .pipeline-node:hover {
-      border-color: #10b981;
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-      transform: translateY(-2px);
+      border-color: #58a6ff;
+      box-shadow: 0 12px 40px rgba(88, 166, 255, 0.3), 0 0 0 1px rgba(88, 166, 255, 0.2);
+      transform: translateY(-8px) scale(1.02);
     }
 
     .pipeline-node.active {
       border-color: #10b981;
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+      box-shadow: 0 12px 40px rgba(16, 185, 129, 0.4), 0 0 0 1px rgba(16, 185, 129, 0.3);
+      transform: translateY(-4px) scale(1.01);
     }
 
     .node-header {
@@ -374,91 +411,145 @@ function formatDate(dateString: string) {
       height: 12px;
       border-radius: 50%;
       animation: pulse 2s infinite;
+      position: relative;
+    }
+
+    .node-status::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: 50%;
+      background: inherit;
+      opacity: 0.3;
+      animation: ripple 2s infinite;
     }
 
     .status-success {
       background: #10b981;
-      box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
     }
 
     .node-icon {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+      transition: transform 0.3s ease;
+    }
+
+    .pipeline-node:hover .node-icon {
+      transform: scale(1.1) rotate(5deg);
     }
 
     .node-content h3 {
-      font-size: 1.125rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: #f1f5f9;
       margin-bottom: 0.5rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     .node-content p {
       color: #94a3b8;
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       margin-bottom: 1rem;
+      line-height: 1.4;
     }
 
     .node-metrics {
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: 0.4rem;
     }
 
     .metric {
-      background: #334155;
+      background: linear-gradient(135deg, #334155 0%, #475569 100%);
       color: #10b981;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
+      padding: 0.4rem 0.6rem;
+      border-radius: 8px;
       font-size: 0.75rem;
       font-weight: 500;
       text-align: center;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .metric:hover {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      transform: translateY(-1px);
     }
 
     .pipeline-connection {
       display: flex;
       align-items: center;
       position: relative;
-      width: 30px;
-      height: 4px;
+      width: 40px;
+      height: 6px;
       flex-shrink: 0;
     }
 
     .connection-line {
       width: 100%;
-      height: 2px;
-      background: #334155;
+      height: 3px;
+      background: linear-gradient(90deg, #334155 0%, #475569 50%, #334155 100%);
       position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .connection-line::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.6), transparent);
+      animation: shimmer 2s infinite;
     }
 
     .data-flow {
       position: absolute;
-      width: 8px;
-      height: 8px;
-      background: #10b981;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #10b981 0%, #059669 100%);
       border-radius: 50%;
       animation: flow 3s linear infinite;
-      box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.8), 0 0 30px rgba(16, 185, 129, 0.4);
+      border: 2px solid rgba(255, 255, 255, 0.2);
     }
 
     .pipeline-details {
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 12px;
-      padding: 2rem;
+      background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+      border: 1px solid #475569;
+      border-radius: 16px;
+      padding: 2.5rem;
       max-width: 800px;
       margin: 0 auto;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .pipeline-details:hover {
+      border-color: #58a6ff;
+      box-shadow: 0 12px 40px rgba(88, 166, 255, 0.2);
     }
 
     .details-content h3 {
       color: #f1f5f9;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 600;
       margin-bottom: 1rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     .details-content p {
       color: #94a3b8;
-      line-height: 1.6;
+      line-height: 1.7;
+      font-size: 1rem;
     }
 
     @keyframes pulse {
@@ -466,8 +557,18 @@ function formatDate(dateString: string) {
       50% { opacity: 0.5; }
     }
 
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 0.3; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+
     @keyframes flow {
-      0% { left: -10px; }
+      0% { left: -15px; }
+      100% { left: 100%; }
+    }
+
+    @keyframes shimmer {
+      0% { left: -100%; }
       100% { left: 100%; }
     }
 
@@ -475,37 +576,86 @@ function formatDate(dateString: string) {
     @media (max-width: 1200px) {
       .pipeline-container {
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 1.5rem;
+        justify-content: center;
       }
       
       .pipeline-node {
-        width: calc(50% - 1rem);
-        min-width: 250px;
+        width: calc(50% - 0.75rem);
+        min-width: 280px;
+        max-width: 320px;
       }
       
       .pipeline-connection {
         width: 100%;
-        height: 30px;
+        height: 40px;
         transform: rotate(90deg);
+      }
+      
+      .connection-line {
+        height: 4px;
       }
     }
 
     @media (max-width: 768px) {
+      .pipeline-demo {
+        padding: 3rem 0;
+      }
+      
+      .pipeline-demo h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+      
       .pipeline-container {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 2rem;
+        padding: 0 0.5rem;
       }
       
       .pipeline-node {
         width: 100%;
-        max-width: 300px;
+        max-width: 350px;
         margin: 0 auto;
+        padding: 1.25rem;
       }
       
       .pipeline-connection {
         transform: rotate(90deg);
-        width: 4px;
-        height: 40px;
+        width: 6px;
+        height: 50px;
+      }
+      
+      .connection-line {
+        height: 4px;
+      }
+      
+      .pipeline-details {
+        padding: 2rem;
+        margin: 0 1rem;
+      }
+      
+      .details-content h3 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pipeline-node {
+        padding: 1rem;
+      }
+      
+      .node-content h3 {
+        font-size: 1.1rem;
+      }
+      
+      .node-content p {
+        font-size: 0.85rem;
+      }
+      
+      .metric {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.5rem;
       }
     }
 
@@ -673,21 +823,21 @@ function formatDate(dateString: string) {
 
   <script is:inline>
     const nodeDetails = {
-      source: {
-        title: "Data Sources",
-        description: "Integrated multiple corporate data sources to unify Datawalt's data platform. Developed custom connectors for legacy systems and REST APIs. Implemented real-time validation and automated data quality controls to ensure information integrity."
+      music: {
+        title: "Music Student",
+        description: "I was studying Music Composition, writing scores for student films and piss-poor videogame developers while earning a magnificent average of 15 bucks a month. Living under my mom's roof with zero job prospects and no idea what I wanted to do with my life. The future looked bleak, to say the least."
       },
-      etl: {
-        title: "ETL Engine",
-        description: "Led the creation of homogeneous data management software at the corporate level. Automated extraction, transformation, and loading processes using Python and BI tools. Optimized pipelines to improve efficiency and reduce processing times by 40%."
+      tutoring: {
+        title: "Stata Tutor",
+        description: "My girlfriend was losing her mind over her Econometrics class and Stata software. I grabbed a pirated copy of Stata MP and started helping her with homework. Before I knew it, I was tutoring half the class, teaching them Python and making sick graphs with ggplot2. It felt like free money compared to music gigs."
       },
-      warehouse: {
-        title: "Data Warehouse",
-        description: "Designed and managed Datawalt's unified data architecture. Implemented scalable storage solutions using PostgreSQL and BI systems. Maintained high availability and optimized queries to improve report and dashboard performance."
+      intern: {
+        title: "BI Intern",
+        description: "I applied to Datawalt with a music degree and zero experience. The interview was hilarious - they asked about my hobbies and video games. The skill test was a disaster: I got 2/10 questions right. I took it home, hammered it out with ChatGPT, and sent it back three hours later. They hired me anyway."
       },
-      analytics: {
-        title: "Analytics Layer",
-        description: "Developed interactive Power BI dashboards for different company areas. Created automated reports and visualizations that enable data-driven decision making. Implemented key business metrics and KPIs for real-time monitoring."
+      lead: {
+        title: "Team Lead",
+        description: "Within a year, I was leading Datawalt's first Data Engineering Cell, processing millions of records daily across LATAM. I built Warp, our custom data platform, and demonstrated a scalability-first mindset that caught the C-suite's attention. Still figuring it out, but making it work."
       }
     };
 
