@@ -40,99 +40,110 @@ function formatDate(dateString: string) {
       <h2>Skills Pipeline</h2>
       <div class="pipeline-container">
         <!-- Top Row - Foundation Skills -->
-        <div class="pipeline-block" data-skill="python" onclick="showSkillDetails('python')" style="grid-column: 1; grid-row: 1;">
-          <h3>Python</h3>
-          <p>Data Processing</p>
+        <div class="pipeline-row top">
+          <div class="pipeline-block" data-skill="python" onclick="showSkillDetails('python')">
+            <h3>Python</h3>
+            <p>Data Processing</p>
+          </div>
+          
+          <div class="pipeline-block" data-skill="sql" onclick="showSkillDetails('sql')">
+            <h3>SQL</h3>
+            <p>Database Queries</p>
+          </div>
+          
+          <div class="pipeline-block" data-skill="statistics" onclick="showSkillDetails('statistics')">
+            <h3>Statistics</h3>
+            <p>Analytical Foundation</p>
+          </div>
         </div>
-        
-        <div class="pipeline-block" data-skill="sql" onclick="showSkillDetails('sql')" style="grid-column: 2; grid-row: 1;">
-          <h3>SQL</h3>
-          <p>Database Queries</p>
-        </div>
-        
-        <div class="pipeline-block" data-skill="statistics" onclick="showSkillDetails('statistics')" style="grid-column: 3; grid-row: 1;">
-          <h3>Statistics</h3>
-          <p>Analytical Foundation</p>
-        </div>
-        
-        <div class="pipeline-block" data-skill="databases" onclick="showSkillDetails('databases')" style="grid-column: 4; grid-row: 1;">
-          <h3>Databases</h3>
-          <p>PostgreSQL • Data Warehousing</p>
+
+        <!-- Left Side - Storage Skills -->
+        <div class="pipeline-row left">
+          <div class="pipeline-block" data-skill="databases" onclick="showSkillDetails('databases')">
+            <h3>Databases</h3>
+            <p>PostgreSQL • Data Warehousing</p>
+          </div>
+          
+          <div class="pipeline-block" data-skill="cloud" onclick="showSkillDetails('cloud')">
+            <h3>Cloud Storage</h3>
+            <p>Scalable Infrastructure</p>
+          </div>
         </div>
 
         <!-- Middle Row - Core Skills -->
-        <div class="pipeline-block" data-skill="cloud" onclick="showSkillDetails('cloud')" style="grid-column: 1; grid-row: 2;">
-          <h3>Cloud Storage</h3>
-          <p>Scalable Infrastructure</p>
-        </div>
-        
-        <div class="pipeline-block main-block" data-skill="data-engineering" onclick="showSkillDetails('data-engineering')" style="grid-column: 2; grid-row: 2;">
-          <h3>Data Engineering</h3>
-          <p>ETL • Pipelines • Automation</p>
-        </div>
-        
-        <div class="pipeline-block main-block" data-skill="software-design" onclick="showSkillDetails('software-design')" style="grid-column: 3; grid-row: 2;">
-          <h3>Software Design</h3>
-          <p>Architecture • Scalability • Systems</p>
-        </div>
-        
-        <div class="pipeline-block" data-skill="analytics" onclick="showSkillDetails('analytics')" style="grid-column: 4; grid-row: 2;">
-          <h3>Analytics</h3>
-          <p>Business Intelligence</p>
+        <div class="pipeline-row middle">
+          <div class="pipeline-block main-block" data-skill="data-engineering" onclick="showSkillDetails('data-engineering')">
+            <h3>Data Engineering</h3>
+            <p>ETL • Pipelines • Automation</p>
+          </div>
+          
+          <div class="pipeline-block main-block" data-skill="software-design" onclick="showSkillDetails('software-design')">
+            <h3>Software Design</h3>
+            <p>Architecture • Scalability • Systems</p>
+          </div>
         </div>
 
-        <!-- Bottom Row - Application Skills -->
-        <div class="pipeline-block" data-skill="visualization" onclick="showSkillDetails('visualization')" style="grid-column: 1; grid-row: 3;">
-          <h3>Visualization</h3>
-          <p>Power BI • Dashboards</p>
+        <!-- Right Side - Analysis Skills -->
+        <div class="pipeline-row right">
+          <div class="pipeline-block" data-skill="analytics" onclick="showSkillDetails('analytics')">
+            <h3>Analytics</h3>
+            <p>Business Intelligence</p>
+          </div>
+          
+          <div class="pipeline-block" data-skill="visualization" onclick="showSkillDetails('visualization')">
+            <h3>Visualization</h3>
+            <p>Power BI • Dashboards</p>
+          </div>
         </div>
-        
-        <div class="pipeline-block" data-skill="leadership" onclick="showSkillDetails('leadership')" style="grid-column: 2; grid-row: 3;">
-          <h3>Team Leadership</h3>
-          <p>Management • Mentoring</p>
-        </div>
-        
-        <div class="pipeline-block" data-skill="communication" onclick="showSkillDetails('communication')" style="grid-column: 3; grid-row: 3;">
-          <h3>Communication</h3>
-          <p>Stakeholder Relations</p>
-        </div>
-        
-        <div class="pipeline-block final-block" data-skill="alonso" onclick="showSkillDetails('alonso')" style="grid-column: 4; grid-row: 3;">
-          <h3>Data Engineering Lead</h3>
-          <p>LATAM • Enterprise Solutions</p>
+
+        <!-- Bottom Row - Leadership Skills -->
+        <div class="pipeline-row bottom">
+          <div class="pipeline-block" data-skill="leadership" onclick="showSkillDetails('leadership')">
+            <h3>Team Leadership</h3>
+            <p>Management • Mentoring</p>
+          </div>
+          
+          <div class="pipeline-block" data-skill="communication" onclick="showSkillDetails('communication')">
+            <h3>Communication</h3>
+            <p>Stakeholder Relations</p>
+          </div>
+          
+          <div class="pipeline-block final-block" data-skill="alonso" onclick="showSkillDetails('alonso')">
+            <h3>Data Engineering Lead</h3>
+            <p>LATAM • Enterprise Solutions</p>
+          </div>
         </div>
 
         <!-- Connection Lines -->
-        <svg class="pipeline-connections" viewBox="0 0 1200 600">
+        <svg class="pipeline-connections" viewBox="0 0 1200 800">
           <!-- Top row to Data Engineering -->
-          <path d="M 200 100 Q 300 100 400 200" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-          <path d="M 400 100 Q 400 150 400 200" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-          <path d="M 600 100 Q 500 100 400 200" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-          <path d="M 800 100 Q 700 100 600 200" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 200 100 Q 400 150 500 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 400 100 Q 450 150 500 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 600 100 Q 550 150 500 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
           
           <!-- Top row to Software Design -->
-          <path d="M 200 100 Q 500 100 600 200" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-          <path d="M 400 100 Q 500 100 600 200" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-          <path d="M 600 100 Q 600 150 600 200" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-          <path d="M 800 100 Q 700 100 600 200" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 200 100 Q 600 150 700 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 400 100 Q 600 150 700 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 600 100 Q 650 150 700 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
           
-          <!-- Cloud to Data Engineering -->
-          <path d="M 200 300 Q 300 300 400 200" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <!-- Left side to Data Engineering -->
+          <path d="M 100 400 Q 300 350 500 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 100 500 Q 300 450 500 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
           
-          <!-- Analytics to Software Design -->
-          <path d="M 800 300 Q 700 300 600 200" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <!-- Right side to Software Design -->
+          <path d="M 1100 400 Q 900 350 700 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 1100 500 Q 900 450 700 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
           
           <!-- Data Engineering to Leadership -->
-          <path d="M 400 200 Q 400 250 400 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 500 300 Q 500 500 300 600" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
           
           <!-- Software Design to Communication -->
-          <path d="M 600 200 Q 600 250 600 300" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 700 300 Q 700 500 500 600" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
           
           <!-- All to Final -->
-          <path d="M 200 500 Q 400 500 800 500" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-          <path d="M 400 500 Q 500 500 800 500" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-          <path d="M 600 500 Q 700 500 800 500" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-          <path d="M 800 500 Q 800 500 800 500" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 300 600 Q 600 650 900 600" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 500 600 Q 600 650 900 600" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 700 600 Q 800 650 900 600" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
           
           <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -312,15 +323,55 @@ function formatDate(dateString: string) {
       margin: 0 auto;
       padding: 0 2rem;
       position: relative;
-      overflow-x: auto;
-    }
-
-    .pipeline-column {
+      height: 800px;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      min-width: 200px;
-      margin-right: 2rem;
+      justify-content: space-between;
+    }
+
+    .pipeline-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 2rem 0;
+      position: relative;
+    }
+
+    .pipeline-row.top {
+      justify-content: flex-start;
+      gap: 4rem;
+    }
+
+    .pipeline-row.middle {
+      justify-content: center;
+      gap: 6rem;
+    }
+
+    .pipeline-row.bottom {
+      justify-content: flex-end;
+      gap: 3rem;
+    }
+
+    .pipeline-row.left {
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 2rem;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .pipeline-row.right {
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-direction: column;
+      gap: 2rem;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     .pipeline-block {
