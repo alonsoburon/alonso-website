@@ -4,10 +4,10 @@ import Layout from '../../layouts/Layout.astro';
 
 const posts = await getCollection('blog');
 
-// Función para formatear fechas
+// Function to format dates
 function formatDate(dateString: string) {
   const date = new Date(dateString);
-  return date.toLocaleDateString('es-ES', {
+  return date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
@@ -15,13 +15,13 @@ function formatDate(dateString: string) {
 }
 ---
 
-<Layout title="Blog - Alonso" description="Artículos sobre ingeniería de datos, machine learning y análisis de datos.">
+<Layout title="Blog - Alonso" description="Articles about data engineering, machine learning and data analysis.">
   <div class="container">
     <header class="blog-header">
       <h1>Blog</h1>
       <p class="blog-subtitle">
-        Artículos sobre ingeniería de datos, machine learning, big data y mejores prácticas 
-        en el desarrollo de sistemas de datos escalables.
+        Articles about data engineering, machine learning, big data and best practices 
+        in developing scalable data systems.
       </p>
     </header>
 
@@ -40,8 +40,8 @@ function formatDate(dateString: string) {
             <h2 class="post-title">
               <a href={`/blog/${post.slug}`}>{post.data.title}</a>
             </h2>
-            <p class="post-excerpt">{post.data.description || 'Artículo sobre ingeniería de datos y análisis.'}</p>
-            <a href={`/blog/${post.slug}`} class="read-more">Leer más →</a>
+            <p class="post-excerpt">{post.data.description || 'Article about data engineering and analysis.'}</p>
+            <a href={`/blog/${post.slug}`} class="read-more">Read more →</a>
           </article>
         ))}
       </div>

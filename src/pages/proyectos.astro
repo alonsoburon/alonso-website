@@ -3,51 +3,52 @@ import Layout from '../layouts/Layout.astro';
 
 const proyectos = [
   {
-    title: 'Sistema de Predicción de Demanda',
-    description: 'Modelo de machine learning para predecir demanda de productos con 95% de precisión, procesando 1M+ transacciones diarias.',
-    technologies: ['Python', 'TensorFlow', 'Apache Spark', 'AWS'],
+    title: 'Warp - Extractor de Datos Distribuido',
+    description: 'Sistema de extracción de datos distribuido con soporte para múltiples máquinas y schedules configurables. Desarrollado para Datawalt como el mejor extractor de datos en LATAM.',
+    technologies: ['Python', 'Dagster', 'MongoDB', 'BigQuery', 'PostgreSQL', 'DLT'],
     image: '/api/placeholder/400/250',
-    github: 'https://github.com/alonso/demand-prediction',
-    demo: 'https://demo.example.com'
+    github: 'https://github.com/Datawalt/warp',
+    demo: null,
+    featured: true
   },
   {
-    title: 'Pipeline de Datos en Tiempo Real',
-    description: 'Arquitectura de streaming de datos que procesa eventos en tiempo real usando Kafka, Spark Streaming y Elasticsearch.',
-    technologies: ['Kafka', 'Spark Streaming', 'Elasticsearch', 'Docker'],
+    title: 'Habit Tracker - IU International',
+    description: 'Aplicación de seguimiento de hábitos desarrollada para IU International University of Applied Sciences como parte de mis estudios de Data Science.',
+    technologies: ['Python', 'Web Development', 'Data Analysis'],
     image: '/api/placeholder/400/250',
-    github: 'https://github.com/alonso/streaming-pipeline',
+    github: 'https://github.com/alonsoburon/habit_tracker',
     demo: null
   },
   {
-    title: 'Dashboard de Analytics',
-    description: 'Dashboard interactivo para análisis de datos de negocio con visualizaciones en tiempo real y alertas automáticas.',
-    technologies: ['React', 'D3.js', 'Node.js', 'PostgreSQL'],
+    title: 'Waltiliga Ajedrez',
+    description: 'Sistema de gestión de ligas de ajedrez con funcionalidades avanzadas para torneos y seguimiento de partidas.',
+    technologies: ['Web Development', 'Database Management', 'Tournament System'],
     image: '/api/placeholder/400/250',
-    github: 'https://github.com/alonso/analytics-dashboard',
-    demo: 'https://dashboard.example.com'
-  },
-  {
-    title: 'Framework de Calidad de Datos',
-    description: 'Sistema automatizado para validación y monitoreo de calidad de datos con alertas y reportes detallados.',
-    technologies: ['Python', 'Great Expectations', 'Airflow', 'GCP'],
-    image: '/api/placeholder/400/250',
-    github: 'https://github.com/alonso/data-quality-framework',
+    github: 'https://github.com/alonsoburon/waltiliga_ajedrez',
     demo: null
   },
   {
-    title: 'API de Machine Learning',
-    description: 'API REST para servir modelos de ML con autoscaling, versionado y monitoreo de rendimiento en tiempo real.',
-    technologies: ['FastAPI', 'MLflow', 'Kubernetes', 'Prometheus'],
+    title: 'Chess League Management',
+    description: 'Plataforma para gestión de ligas de ajedrez con sistema de puntuación, rankings y seguimiento de partidas.',
+    technologies: ['Web Development', 'Database Design', 'Tournament Logic'],
     image: '/api/placeholder/400/250',
-    github: 'https://github.com/alonso/ml-api',
-    demo: 'https://api.example.com'
+    github: 'https://github.com/alonsoburon/chess_league',
+    demo: null
   },
   {
-    title: 'Data Lake en la Nube',
-    description: 'Arquitectura de data lake escalable en AWS con procesamiento batch y streaming, optimizada para costos.',
-    technologies: ['AWS S3', 'Glue', 'Athena', 'Lambda'],
+    title: 'Study Repository',
+    description: 'Repositorio de estudios y proyectos académicos durante mi formación en Data Science e ingeniería de datos.',
+    technologies: ['Data Science', 'Python', 'Machine Learning', 'Statistics'],
     image: '/api/placeholder/400/250',
-    github: 'https://github.com/alonso/cloud-data-lake',
+    github: 'https://github.com/alonsoburon/Study',
+    demo: null
+  },
+  {
+    title: 'Portfolio Personal',
+    description: 'Portfolio personal anterior con proyectos de desarrollo web y análisis de datos.',
+    technologies: ['Web Development', 'Portfolio Design', 'Responsive Design'],
+    image: '/api/placeholder/400/250',
+    github: 'https://github.com/alonsoburon/alonsoburon',
     demo: null
   }
 ];
@@ -59,21 +60,29 @@ const proyectos = [
       <h1>Proyectos</h1>
       <p class="projects-subtitle">
         Una selección de proyectos que demuestran mi experiencia en ingeniería de datos, 
-        machine learning y desarrollo de sistemas escalables.
+        desarrollo de sistemas distribuidos y liderazgo técnico. Incluye mi trabajo principal 
+        en Datawalt y proyectos personales que muestran mi versatilidad.
       </p>
     </header>
 
     <div class="projects-grid">
       {proyectos.map((proyecto) => (
-        <div class="project-card">
+        <div class={`project-card ${proyecto.featured ? 'featured' : ''}`}>
           <div class="project-image">
             <div class="placeholder-image">
-              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21,15 16,10 5,21"/>
-              </svg>
+              {proyecto.featured ? (
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ) : (
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21,15 16,10 5,21"/>
+                </svg>
+              )}
             </div>
+            {proyecto.featured && <div class="featured-badge">⭐ Destacado</div>}
           </div>
           <div class="project-content">
             <h3 class="project-title">{proyecto.title}</h3>
@@ -151,12 +160,36 @@ const proyectos = [
       border-color: #2563eb;
     }
 
+    .project-card.featured {
+      border: 2px solid #f59e0b;
+      background: linear-gradient(135deg, #fef3c7 0%, #ffffff 100%);
+    }
+
+    .project-card.featured:hover {
+      border-color: #d97706;
+      box-shadow: 0 12px 30px rgba(245, 158, 11, 0.2);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #f59e0b;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 1;
+    }
+
     .project-image {
       height: 200px;
       background: #f8f9fa;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
 
     .placeholder-image {

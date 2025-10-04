@@ -15,7 +15,7 @@ const { Content } = await post.render();
 
 function formatDate(dateString: string) {
   const date = new Date(dateString);
-  return date.toLocaleDateString('es-ES', {
+  return date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
@@ -23,7 +23,7 @@ function formatDate(dateString: string) {
 }
 ---
 
-<Layout title={`${post.data.title} - Blog de Alonso`} description={`${post.data.title} - Artículo sobre ingeniería de datos y análisis.`}>
+<Layout title={`${post.data.title} - Alonso's Blog`} description={`${post.data.title} - Article about data engineering and analysis.`}>
   <div class="container">
     <article class="blog-post">
       <header class="post-header">
@@ -43,9 +43,9 @@ function formatDate(dateString: string) {
       </div>
 
       <footer class="post-footer">
-        <div class="post-navigation">
-          <a href="/blog" class="btn btn-outline">← Volver al Blog</a>
-        </div>
+            <div class="post-navigation">
+              <a href="/blog" class="btn btn-outline">← Back to Blog</a>
+            </div>
       </footer>
     </article>
   </div>
@@ -99,7 +99,7 @@ function formatDate(dateString: string) {
     }
 
     .post-title {
-      font-size: 2.5rem;
+      font-size: 2.0rem;
       font-weight: 700;
       color: #1f2937;
       line-height: 1.2;
