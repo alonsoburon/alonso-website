@@ -35,130 +35,92 @@ function formatDate(dateString: string) {
     </section>
 
 
-    <!-- Skills Pipeline Section -->
-    <section class="pipeline-demo">
-      <h2>Who I Am Today</h2>
-      <div class="pipeline-container">
-        <div class="pipeline-node" data-node="data-engineering" onclick="showSkillDetails('data-engineering')">
-          <div class="node-header">
-            <div class="node-status status-success"></div>
-            <div class="node-icon">⚡</div>
-          </div>
-          <div class="node-content">
+    <!-- Core Competencies -->
+    <section class="core-competencies">
+      <h2>Core Competencies</h2>
+      <div class="competencies-grid">
+        <div class="competency-card" data-skill="python" onclick="showSkillDetails('python')">
+          <div class="competency-header">
             <h3>Data Engineering</h3>
-            <p>Python • ETL • Automation</p>
-            <div class="node-metrics">
-              <span class="metric">Expert Level</span>
-              <span class="metric">Enterprise Platforms</span>
-            </div>
+            <div class="competency-level">Expert</div>
+          </div>
+          <p>Python, ETL pipelines, data platforms, automation. Built enterprise-grade systems processing millions of records daily.</p>
+          <div class="competency-tags">
+            <span class="tag">Python</span>
+            <span class="tag">ETL</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Delta Tables</span>
           </div>
         </div>
 
-        <div class="pipeline-connection">
-          <div class="connection-line"></div>
-          <div class="data-flow"></div>
-        </div>
-
-        <div class="pipeline-node" data-node="team-leadership" onclick="showSkillDetails('team-leadership')">
-          <div class="node-header">
-            <div class="node-status status-success"></div>
-            <div class="node-icon">👥</div>
-          </div>
-          <div class="node-content">
+        <div class="competency-card" data-skill="leadership" onclick="showSkillDetails('leadership')">
+          <div class="competency-header">
             <h3>Team Leadership</h3>
-            <p>Management • Mentoring • Strategy</p>
-            <div class="node-metrics">
-              <span class="metric">Advanced Level</span>
-              <span class="metric">Data Engineering Cell</span>
-            </div>
+            <div class="competency-level">Advanced</div>
+          </div>
+          <p>Led Datawalt's first Data Engineering Cell. Experience managing technical teams, mentoring developers, and stakeholder communication.</p>
+          <div class="competency-tags">
+            <span class="tag">Team Management</span>
+            <span class="tag">Mentoring</span>
+            <span class="tag">Stakeholder Relations</span>
+            <span class="tag">Strategic Planning</span>
           </div>
         </div>
 
-        <div class="pipeline-connection">
-          <div class="connection-line"></div>
-          <div class="data-flow"></div>
-        </div>
-
-        <div class="pipeline-node" data-node="business-intelligence" onclick="showSkillDetails('business-intelligence')">
-          <div class="node-header">
-            <div class="node-status status-success"></div>
-            <div class="node-icon">📊</div>
-          </div>
-          <div class="node-content">
+        <div class="competency-card" data-skill="bi" onclick="showSkillDetails('bi')">
+          <div class="competency-header">
             <h3>Business Intelligence</h3>
-            <p>Power BI • Dashboards • Analytics</p>
-            <div class="node-metrics">
-              <span class="metric">Expert Level</span>
-              <span class="metric">LATAM Clients</span>
-            </div>
+            <div class="competency-level">Expert</div>
+          </div>
+          <p>Power BI expert with LATAM client experience. Built executive dashboards and data visualization solutions for business decision-making.</p>
+          <div class="competency-tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">Data Visualization</span>
+            <span class="tag">Dashboard Design</span>
+            <span class="tag">Business Analytics</span>
           </div>
         </div>
 
-        <div class="pipeline-connection">
-          <div class="connection-line"></div>
-          <div class="data-flow"></div>
-        </div>
-
-        <div class="pipeline-node" data-node="data-architecture" onclick="showSkillDetails('data-architecture')">
-          <div class="node-header">
-            <div class="node-status status-success"></div>
-            <div class="node-icon">🏗️</div>
+        <div class="competency-card" data-skill="architecture" onclick="showSkillDetails('architecture')">
+          <div class="competency-header">
+            <h3>System Architecture</h3>
+            <div class="competency-level">Advanced</div>
           </div>
-          <div class="node-content">
-            <h3>Data Architecture</h3>
-            <p>PostgreSQL • Warehousing • Scalability</p>
-            <div class="node-metrics">
-              <span class="metric">Advanced Level</span>
-              <span class="metric">Warp Platform</span>
-            </div>
+          <p>Designed and built scalable data architectures. Strong focus on performance optimization, system reliability, and future-proofing.</p>
+          <div class="competency-tags">
+            <span class="tag">Data Architecture</span>
+            <span class="tag">Scalability</span>
+            <span class="tag">Performance</span>
+            <span class="tag">Enterprise Solutions</span>
           </div>
         </div>
 
-        <div class="pipeline-connection">
-          <div class="connection-line"></div>
-          <div class="data-flow"></div>
-        </div>
-
-        <div class="pipeline-node" data-node="problem-solving" onclick="showSkillDetails('problem-solving')">
-          <div class="node-header">
-            <div class="node-status status-success"></div>
-            <div class="node-icon">🧩</div>
+        <div class="competency-card" data-skill="analytics" onclick="showSkillDetails('analytics')">
+          <div class="competency-header">
+            <h3>Statistical Analysis</h3>
+            <div class="competency-level">Advanced</div>
           </div>
-          <div class="node-content">
-            <h3>Problem Solving</h3>
-            <p>Analytics • Debugging • Innovation</p>
-            <div class="node-metrics">
-              <span class="metric">Expert Level</span>
-              <span class="metric">Music Background</span>
-            </div>
+          <p>Econometric analysis, statistical modeling, and data interpretation. Experience with statistical software and advanced analytical techniques.</p>
+          <div class="competency-tags">
+            <span class="tag">Econometrics</span>
+            <span class="tag">Statistical Modeling</span>
+            <span class="tag">Data Analysis</span>
+            <span class="tag">R/Stata</span>
           </div>
         </div>
 
-        <div class="pipeline-connection">
-          <div class="connection-line"></div>
-          <div class="data-flow"></div>
-        </div>
-
-        <div class="pipeline-node" data-node="communication" onclick="showSkillDetails('communication')">
-          <div class="node-header">
-            <div class="node-status status-success"></div>
-            <div class="node-icon">💬</div>
+        <div class="competency-card" data-skill="ai" onclick="showSkillDetails('ai')">
+          <div class="competency-header">
+            <h3>AI Integration</h3>
+            <div class="competency-level">Proficient</div>
           </div>
-          <div class="node-content">
-            <h3>Communication</h3>
-            <p>Teaching • Presenting • Collaboration</p>
-            <div class="node-metrics">
-              <span class="metric">Advanced Level</span>
-              <span class="metric">Tutoring Experience</span>
-            </div>
+          <p>Leveraging LLM tools and AI technologies for automation, rapid prototyping, and productivity enhancement in data workflows.</p>
+          <div class="competency-tags">
+            <span class="tag">LLM Tools</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Rapid Prototyping</span>
+            <span class="tag">AI Workflows</span>
           </div>
-        </div>
-      </div>
-
-      <div class="pipeline-details" id="skillDetails">
-        <div class="details-content">
-          <h3 id="skillTitle">Click a skill to see how I developed it</h3>
-          <p id="skillDescription">Each skill tells a story of growth, from music student to data team lead.</p>
         </div>
       </div>
     </section>
@@ -313,17 +275,112 @@ function formatDate(dateString: string) {
       z-index: 1;
     }
 
-    .pipeline-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      max-width: 1400px;
-      margin: 0 auto 3rem;
-      padding: 0 1rem;
+    .core-competencies {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    .core-competencies h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 3rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .competencies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .competency-card {
+      background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+      border: 1px solid #475569;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
       position: relative;
-      z-index: 0;
-      overflow: visible;
+      overflow: hidden;
+    }
+
+    .competency-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .competency-card:hover::before {
+      left: 100%;
+    }
+
+    .competency-card:hover {
+      border-color: #58a6ff;
+      box-shadow: 0 8px 32px rgba(88, 166, 255, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .competency-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .competency-header h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin: 0;
+    }
+
+    .competency-level {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .competency-card p {
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .competency-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: linear-gradient(135deg, #334155 0%, #475569 100%);
+      color: #10b981;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .tag:hover {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      transform: translateY(-1px);
     }
 
     .pipeline-node {
@@ -427,71 +484,69 @@ function formatDate(dateString: string) {
       line-height: 1.4;
     }
 
-    .node-metrics {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .metric {
-      background: linear-gradient(135deg, #334155 0%, #475569 100%);
-      color: #10b981;
-      padding: 0.4rem 0.6rem;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      text-align: center;
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .metric:hover {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: white;
-      transform: translateY(-1px);
-    }
-
-    .pipeline-connection {
-      display: flex;
-      align-items: center;
-      position: relative;
-      width: 80px;
-      height: 6px;
-      flex-shrink: 0;
-      z-index: -2;
-    }
 
     .connection-line {
-      width: 400px;
-      height: 3px;
-      background: linear-gradient(90deg, #334155 0%, #475569 50%, #334155 100%);
       position: absolute;
-      border-radius: 2px;
-      overflow: hidden;
-      left: -160px;
+      background: linear-gradient(45deg, transparent 0%, #10b981 20%, #10b981 80%, transparent 100%);
+      height: 2px;
+      z-index: -1;
+      animation: flow 3s ease-in-out infinite;
     }
 
-    .connection-line::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.6), transparent);
-      animation: shimmer 2s infinite;
+    .top-left-to-center {
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      transform-origin: center;
     }
 
-    .data-flow {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: radial-gradient(circle, #10b981 0%, #059669 100%);
-      border-radius: 50%;
-      animation: flow 3s linear infinite;
-      box-shadow: 0 0 15px rgba(16, 185, 129, 0.8), 0 0 30px rgba(16, 185, 129, 0.4);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      opacity: 0;
+    .top-center-to-center {
+      top: 50%;
+      left: 50%;
+      width: 150px;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      transform-origin: center;
+    }
+
+    .top-right-to-center {
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      transform: translate(-50%, -50%) rotate(-135deg);
+      transform-origin: center;
+    }
+
+    .left-top-to-center {
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transform-origin: center;
+    }
+
+    .left-bottom-to-center {
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      transform: translate(-50%, -50%) rotate(135deg);
+      transform-origin: center;
+    }
+
+    .right-top-to-center {
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      transform-origin: center;
+    }
+
+    .right-bottom-to-center {
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      transform: translate(-50%, -50%) rotate(-135deg);
+      transform-origin: center;
     }
 
     .pipeline-details {
@@ -732,29 +787,29 @@ function formatDate(dateString: string) {
   <script is:inline>
 
     const skillDetails = {
-      'data-engineering': {
+      'python': {
         title: "Data Engineering",
-        description: "Started with simple Python scripts to help students cheat on homework, now building enterprise-grade data platforms. I learned by doing - from Stata automation to custom ETL engines. The key was always thinking about scalability first, not just solving the immediate problem. That mindset got me promoted to team lead."
+        description: "Expert in Python for data engineering, ETL pipelines, and automation. Built custom data platforms processing millions of records daily. Experience with pandas, pyarrow, Delta tables, and enterprise-grade data processing workflows."
       },
-      'team-leadership': {
-        title: "Team Leadership", 
-        description: "Never planned to lead anyone, but here I am managing Datawalt's first Data Engineering Cell. The hardest part isn't the technical stuff - it's managing brilliant, complicated people. I learned that giving problems (not solutions) and creating safety nets works better than micromanaging. Still figuring it out, but the team trusts me."
+      'leadership': {
+        title: "Team Leadership",
+        description: "Led Datawalt's first Data Engineering Cell. Experience managing technical teams, mentoring developers, and stakeholder communication. Proven track record in building and scaling data teams in fast-growing environments."
       },
-      'business-intelligence': {
+      'bi': {
         title: "Business Intelligence",
-        description: "From making sick graphs with ggplot2 to building Power BI dashboards for LATAM clients. I discovered that the best BI isn't about fancy visuals - it's about making data accessible to people who need it. My tutoring background taught me to explain complex concepts simply, which is exactly what good BI requires."
+        description: "Expert in Power BI dashboard development and data visualization. Built executive-level dashboards for LATAM clients, turning raw data into actionable business insights and strategic recommendations."
       },
-      'data-architecture': {
-        title: "Data Architecture",
-        description: "Built Warp, our custom data platform, from scratch. The challenge wasn't just technical - it was convincing everyone that homogenizing data in a warehouse was essential for scaling. I learned that good architecture solves business problems, not just technical ones. PostgreSQL, data warehousing, and thinking 10x bigger than the current need."
+      'architecture': {
+        title: "System Architecture",
+        description: "Expert in designing scalable data architectures and enterprise solutions. Built Warp platform processing millions of records daily. Strong focus on performance optimization, system reliability, and future-proofing."
       },
-      'problem-solving': {
-        title: "Problem Solving",
-        description: "My music background taught me to break complex compositions into manageable parts. Same approach works for data problems - start with the end goal, work backwards, and don't overcomplicate things. The best solutions are often the simplest ones that actually work. ChatGPT helps, but the real skill is asking the right questions."
+      'analytics': {
+        title: "Statistical Analysis",
+        description: "Expert in econometric analysis, statistical modeling, and data interpretation. Experience with statistical software and advanced analytical techniques for business intelligence and decision-making."
       },
-      'communication': {
-        title: "Communication",
-        description: "Tutoring half the economics class taught me that technical skills mean nothing if you can't explain them. I learned to translate complex data concepts into business value, present to C-suite executives, and mentor team members. The key is listening first, then speaking in their language - whether that's Python, SQL, or plain English."
+      'ai': {
+        title: "AI Integration",
+        description: "Proficient in leveraging LLM tools and AI technologies for automation, rapid prototyping, and productivity enhancement. Experience integrating AI solutions into data workflows and business processes."
       }
     };
 
@@ -762,16 +817,16 @@ function formatDate(dateString: string) {
     function showSkillDetails(skillId) {
       console.log('Clicked skill:', skillId);
       
-      // Remove active class from all skill nodes
-      document.querySelectorAll('.skill-node').forEach(node => {
+      // Remove active class from all competency cards
+      document.querySelectorAll('.competency-card').forEach(node => {
         node.classList.remove('active');
       });
       
-      // Add active class to clicked skill node
+      // Add active class to clicked competency card
       const clickedSkill = document.querySelector(`[data-skill="${skillId}"]`);
       if (clickedSkill) {
         clickedSkill.classList.add('active');
-        console.log('Added active class to skill');
+        console.log('Added active class to competency card');
       }
       
       // Update skill details
@@ -808,5 +863,8 @@ function formatDate(dateString: string) {
         }
       });
     }, 5000);
+  </script>
+</Layout>
+
   </script>
 </Layout>
