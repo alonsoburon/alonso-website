@@ -519,6 +519,7 @@ function formatDate(dateString: string) {
       animation: flow 3s linear infinite;
       box-shadow: 0 0 15px rgba(16, 185, 129, 0.8), 0 0 30px rgba(16, 185, 129, 0.4);
       border: 2px solid rgba(255, 255, 255, 0.2);
+      opacity: 0;
     }
 
     .pipeline-details {
@@ -563,8 +564,20 @@ function formatDate(dateString: string) {
     }
 
     @keyframes flow {
-      0% { left: -15px; }
-      100% { left: 100%; }
+      0% { 
+        left: -15px; 
+        opacity: 0; 
+      }
+      10% { 
+        opacity: 1; 
+      }
+      90% { 
+        opacity: 1; 
+      }
+      100% { 
+        left: calc(100% + 15px); 
+        opacity: 0; 
+      }
     }
 
     @keyframes shimmer {
