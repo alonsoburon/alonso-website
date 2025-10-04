@@ -34,15 +34,48 @@ function formatDate(dateString: string) {
     </section>
 
 
-    <!-- Skills Pipeline -->
-    <section class="skills-pipeline">
-      <h2>Skills Pipeline</h2>
-      <div id="cy" class="pipeline-container"></div>
-      
-      <div class="pipeline-details" id="skillDetails">
-        <div class="details-content">
-          <h3 id="skillTitle">Click a skill to see details</h3>
-          <p id="skillDescription">Select any skill to see how it contributes to my expertise as a Data Engineering Lead.</p>
+    <!-- Skills -->
+    <section class="skills">
+      <h2>Core Competencies</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Programming & Data</h3>
+          <ul>
+            <li>Python (Expert)</li>
+            <li>SQL (Expert)</li>
+            <li>PyArrow & Delta Tables</li>
+            <li>Pandas & NumPy</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Data Engineering</h3>
+          <ul>
+            <li>ETL/ELT Pipelines</li>
+            <li>Data Warehousing</li>
+            <li>Apache Spark</li>
+            <li>Data Quality Frameworks</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Cloud & Infrastructure</h3>
+          <ul>
+            <li>AWS (S3, Lambda, Glue)</li>
+            <li>Docker & Kubernetes</li>
+            <li>CI/CD Pipelines</li>
+            <li>Infrastructure as Code</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Leadership & Management</h3>
+          <ul>
+            <li>Team Leadership</li>
+            <li>Technical Mentoring</li>
+            <li>Project Management</li>
+            <li>Cross-functional Collaboration</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -165,414 +198,85 @@ function formatDate(dateString: string) {
       color: #f0f6fc;
     }
 
-    /* Interactive Personal Journey Section */
-    .pipeline-demo {
+    /* Skills Styles */
+    .skills {
       padding: 4rem 0;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-      color: white;
-      position: relative;
-      overflow: visible;
     }
 
-    .pipeline-demo::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 20% 50%, rgba(88, 166, 255, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .pipeline-demo h2 {
+    .skills h2 {
       text-align: center;
+      margin-bottom: 3rem;
+      color: #f1f5f9;
       font-size: 2.5rem;
       font-weight: 700;
-      color: #f1f5f9;
-      margin-bottom: 3rem;
-      position: relative;
-      z-index: 1;
     }
 
-    .skills-pipeline {
-      padding: 4rem 0;
-      background: #0f172a;
-    }
-
-    .skills-pipeline h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #f1f5f9;
-      margin-bottom: 3rem;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .pipeline-container {
-      max-width: 1400px;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
-      height: 600px;
-      background: #0f172a;
+    }
+
+    .skill-category {
+      background: rgba(30, 41, 59, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.1);
       border-radius: 12px;
-    }
-
-    #cy {
-      width: 100%;
-      height: 100%;
-    }
-
-    .pipeline-details {
-      background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
-      border: 1px solid #475569;
-      border-radius: 16px;
-      padding: 2.5rem;
-      max-width: 800px;
-      margin: 2rem auto 0;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 2rem;
       transition: all 0.3s ease;
     }
 
-    .pipeline-details:hover {
-      border-color: #58a6ff;
-      box-shadow: 0 12px 40px rgba(88, 166, 255, 0.2);
+    .skill-category:hover {
+      background: rgba(30, 41, 59, 0.5);
+      border-color: rgba(16, 185, 129, 0.3);
+      transform: translateY(-2px);
     }
 
-    .details-content h3 {
-      color: #f1f5f9;
-      font-size: 1.6rem;
+    .skill-category h3 {
+      color: #10b981;
+      font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 1rem;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      border-bottom: 2px solid rgba(16, 185, 129, 0.2);
+      padding-bottom: 0.5rem;
     }
 
-    .details-content p {
-      color: #94a3b8;
-      line-height: 1.7;
-      font-size: 1rem;
+    .skill-category ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .pipeline-node {
-      background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
-      border: 2px solid #475569;
-      border-radius: 16px;
-      padding: 1.5rem;
-      width: 280px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      flex-shrink: 0;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      z-index: 1;
+    .skill-category li {
+      color: #cbd5e1;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+      transition: color 0.3s ease;
     }
 
-    .pipeline-node::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transition: left 0.6s ease;
+    .skill-category li:last-child {
+      border-bottom: none;
     }
 
-    .pipeline-node:hover::before {
-      left: 100%;
-    }
-
-    .pipeline-node:hover {
-      border-color: #58a6ff;
-      box-shadow: 0 12px 40px rgba(88, 166, 255, 0.3), 0 0 0 1px rgba(88, 166, 255, 0.2);
-      transform: translateY(-8px) scale(1.02);
-    }
-
-    .pipeline-node.active {
-      border-color: #10b981;
-      box-shadow: 0 12px 40px rgba(16, 185, 129, 0.4), 0 0 0 1px rgba(16, 185, 129, 0.3);
-      transform: translateY(-4px) scale(1.01);
-    }
-
-    .node-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .node-status {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-      position: relative;
-    }
-
-    .node-status::after {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      border-radius: 50%;
-      background: inherit;
-      opacity: 0.3;
-      animation: ripple 2s infinite;
-    }
-
-    .status-success {
-      background: #10b981;
-      box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
-    }
-
-    .node-icon {
-      font-size: 1.8rem;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-      transition: transform 0.3s ease;
-    }
-
-    .pipeline-node:hover .node-icon {
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    .node-content h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
+    .skill-category li:hover {
       color: #f1f5f9;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    }
-
-    .node-content p {
-      color: #94a3b8;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      line-height: 1.4;
-    }
-
-
-    .connection-line {
-      position: absolute;
-      background: linear-gradient(45deg, transparent 0%, #10b981 20%, #10b981 80%, transparent 100%);
-      height: 2px;
-      z-index: -1;
-      animation: flow 3s ease-in-out infinite;
-    }
-
-    .top-left-to-center {
-      top: 50%;
-      left: 50%;
-      width: 200px;
-      transform: translate(-50%, -50%) rotate(-45deg);
-      transform-origin: center;
-    }
-
-    .top-center-to-center {
-      top: 50%;
-      left: 50%;
-      width: 150px;
-      transform: translate(-50%, -50%) rotate(-90deg);
-      transform-origin: center;
-    }
-
-    .top-right-to-center {
-      top: 50%;
-      left: 50%;
-      width: 200px;
-      transform: translate(-50%, -50%) rotate(-135deg);
-      transform-origin: center;
-    }
-
-    .left-top-to-center {
-      top: 50%;
-      left: 50%;
-      width: 200px;
-      transform: translate(-50%, -50%) rotate(45deg);
-      transform-origin: center;
-    }
-
-    .left-bottom-to-center {
-      top: 50%;
-      left: 50%;
-      width: 200px;
-      transform: translate(-50%, -50%) rotate(135deg);
-      transform-origin: center;
-    }
-
-    .right-top-to-center {
-      top: 50%;
-      left: 50%;
-      width: 200px;
-      transform: translate(-50%, -50%) rotate(-45deg);
-      transform-origin: center;
-    }
-
-    .right-bottom-to-center {
-      top: 50%;
-      left: 50%;
-      width: 200px;
-      transform: translate(-50%, -50%) rotate(-135deg);
-      transform-origin: center;
-    }
-
-    .pipeline-details {
-      background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
-      border: 1px solid #475569;
-      border-radius: 16px;
-      padding: 2.5rem;
-      max-width: 800px;
-      margin: 0 auto;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
-    }
-
-    .pipeline-details:hover {
-      border-color: #58a6ff;
-      box-shadow: 0 12px 40px rgba(88, 166, 255, 0.2);
-    }
-
-    .details-content h3 {
-      color: #f1f5f9;
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    }
-
-    .details-content p {
-      color: #94a3b8;
-      line-height: 1.7;
-      font-size: 1rem;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
-    @keyframes ripple {
-      0% { transform: scale(1); opacity: 0.3; }
-      100% { transform: scale(2); opacity: 0; }
-    }
-
-    @keyframes flow {
-      0% { 
-        left: -15px; 
-        opacity: 0; 
-      }
-      10% { 
-        opacity: 1; 
-      }
-      90% { 
-        opacity: 1; 
-      }
-      100% { 
-        left: calc(100% + 15px); 
-        opacity: 0; 
-      }
-    }
-
-    @keyframes shimmer {
-      0% { left: -100%; }
-      100% { left: 100%; }
     }
 
     /* Responsive */
-    @media (max-width: 1200px) {
-      .pipeline-container {
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        justify-content: center;
-      }
-      
-      .pipeline-node {
-        width: calc(50% - 0.75rem);
-        min-width: 280px;
-        max-width: 320px;
-      }
-      
-      .pipeline-connection {
-        width: 100%;
-        height: 40px;
-        transform: rotate(90deg);
-      }
-      
-      .connection-line {
-        height: 4px;
-      }
-
-    }
-
     @media (max-width: 768px) {
-      .pipeline-demo {
-        padding: 3rem 0;
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
       
-      .pipeline-demo h2 {
+      .skill-category {
+        padding: 1.5rem;
+      }
+      
+      .skills h2 {
         font-size: 2rem;
-        margin-bottom: 2rem;
       }
-      
-      .pipeline-container {
-        flex-direction: column;
-        gap: 2rem;
-        padding: 0 0.5rem;
-      }
-      
-      .pipeline-node {
-        width: 100%;
-        max-width: 350px;
-        margin: 0 auto;
-        padding: 1.25rem;
-      }
-      
-      .pipeline-connection {
-        transform: rotate(90deg);
-        width: 6px;
-        height: 50px;
-      }
-      
-      .connection-line {
-        height: 4px;
-      }
-      
-      .pipeline-details {
-        padding: 2rem;
-        margin: 0 1rem;
-      }
-      
-      .details-content h3 {
-        font-size: 1.4rem;
-      }
-
-    }
-
-    @media (max-width: 480px) {
-      .pipeline-node {
-        padding: 1rem;
-      }
-      
-      .node-content h3 {
-        font-size: 1.1rem;
-      }
-      
-      .node-content p {
-        font-size: 0.85rem;
-      }
-      
-      .metric {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.5rem;
-      }
-
     }
 
 
@@ -657,191 +361,4 @@ function formatDate(dateString: string) {
     }
   </style>
 
-  <script is:inline>
-    // Load Cytoscape.js from CDN
-    const script = document.createElement('script');
-    script.src = 'https://unpkg.com/cytoscape@3.33.1/dist/cytoscape.min.js';
-    script.onload = function() {
-      // Load Dagre layout
-      const dagreScript = document.createElement('script');
-      dagreScript.src = 'https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js';
-      dagreScript.onload = function() {
-        // Register Dagre layout
-        // @ts-ignore
-        cytoscape.use(dagre);
-        initCytoscape();
-      };
-      document.head.appendChild(dagreScript);
-    };
-    document.head.appendChild(script);
-
-    const skillDetails = {
-      'python': {
-        title: "Python Development",
-        description: "Expert in Python for data processing, automation, and ETL pipelines. Built enterprise-grade systems processing millions of records daily. Experience with pandas, pyarrow, Delta tables, and custom data processing workflows."
-      },
-      'sql': {
-        title: "SQL & Database Queries",
-        description: "Advanced SQL skills for complex data analysis, optimization, and database design. Experience with PostgreSQL, data warehousing, and performance tuning for large-scale data operations."
-      },
-      'statistics': {
-        title: "Statistical Analysis",
-        description: "Strong foundation in statistics and econometrics. Experience with statistical modeling, data interpretation, and advanced analytical techniques for business intelligence and decision-making."
-      },
-      'data-engineering': {
-        title: "Data Engineering",
-        description: "Expert in building and maintaining data pipelines, ETL processes, and data infrastructure. Led the development of Warp platform processing millions of records daily across LATAM operations."
-      },
-      'databases': {
-        title: "Database Management",
-        description: "Expert in PostgreSQL, data warehousing, and database architecture. Designed scalable database solutions for enterprise applications with focus on performance and reliability."
-      },
-      'cloud': {
-        title: "Cloud Infrastructure",
-        description: "Experience with cloud storage solutions and scalable infrastructure design. Built cloud-based data platforms with focus on cost optimization and performance."
-      },
-      'analytics': {
-        title: "Business Analytics",
-        description: "Expert in turning raw data into actionable business insights. Experience with advanced analytical techniques, statistical modeling, and data-driven decision making for enterprise clients."
-      },
-      'visualization': {
-        title: "Data Visualization",
-        description: "Expert in Power BI dashboard development and data visualization. Built executive-level dashboards for LATAM clients, creating intuitive interfaces for complex data analysis."
-      },
-      'software-design': {
-        title: "Software Design",
-        description: "Expert in software architecture, system design, and scalability. Designed and built enterprise-grade data platforms with focus on maintainability, performance, and future-proofing."
-      },
-      'leadership': {
-        title: "Team Leadership",
-        description: "Led Datawalt's first Data Engineering Cell. Experience managing technical teams, mentoring developers, and stakeholder communication. Proven track record in building and scaling data teams."
-      },
-      'communication': {
-        title: "Communication",
-        description: "Strong communication skills for technical and non-technical audiences. Experience presenting to C-suite executives, mentoring team members, and translating complex concepts into business value."
-      },
-      'alonso': {
-        title: "Data Engineering Lead",
-        description: "Experienced data engineering team lead with proven track record in LATAM operations. Successfully built and managed data teams, delivered enterprise-grade data platforms, and demonstrated strong technical leadership in fast-growing environments."
-      }
-    };
-
-    // Initialize Cytoscape
-    function initCytoscape() {
-      // @ts-ignore
-      const cy = cytoscape({
-        container: document.getElementById('cy'),
-        
-        elements: [
-          // Nodes
-          { data: { id: 'python', label: 'Python\nData Processing' } },
-          { data: { id: 'sql', label: 'SQL\nDatabase Queries' } },
-          { data: { id: 'statistics', label: 'Statistics\nAnalytical Foundation' } },
-          { data: { id: 'databases', label: 'Databases\nPostgreSQL • Data Warehousing' } },
-          { data: { id: 'data-engineering', label: 'Data Engineering\nETL • Pipelines • Automation' } },
-          { data: { id: 'software-design', label: 'Software Design\nArchitecture • Scalability • Systems' } },
-          { data: { id: 'analytics', label: 'Analytics\nBusiness Intelligence' } },
-          { data: { id: 'cloud', label: 'Cloud Storage\nScalable Infrastructure' } },
-          { data: { id: 'visualization', label: 'Visualization\nPower BI • Dashboards' } },
-          { data: { id: 'leadership', label: 'Team Leadership\nManagement • Mentoring' } },
-          { data: { id: 'communication', label: 'Communication\nStakeholder Relations' } },
-          { data: { id: 'alonso', label: 'Data Engineering Lead\nLATAM • Enterprise Solutions' } },
-          
-          // Edges
-          { data: { id: 'e1', source: 'python', target: 'data-engineering' } },
-          { data: { id: 'e2', source: 'sql', target: 'data-engineering' } },
-          { data: { id: 'e3', source: 'statistics', target: 'software-design' } },
-          { data: { id: 'e4', source: 'databases', target: 'data-engineering' } },
-          { data: { id: 'e5', source: 'data-engineering', target: 'cloud' } },
-          { data: { id: 'e6', source: 'data-engineering', target: 'visualization' } },
-          { data: { id: 'e7', source: 'software-design', target: 'analytics' } },
-          { data: { id: 'e8', source: 'visualization', target: 'leadership' } },
-          { data: { id: 'e9', source: 'leadership', target: 'alonso' } },
-          { data: { id: 'e10', source: 'communication', target: 'alonso' } },
-          { data: { id: 'e11', source: 'analytics', target: 'alonso' } }
-        ],
-        
-        style: [
-          {
-            selector: 'node',
-            style: {
-              'background-color': '#1e293b',
-              'border-color': '#f1f5f9',
-              'border-width': 2,
-              'color': '#f1f5f9',
-              'text-valign': 'center',
-              'text-halign': 'center',
-              'font-size': '12px',
-              'font-weight': 600,
-              'width': '120px',
-              'height': '80px',
-              'shape': 'round-rectangle',
-              'text-wrap': 'wrap',
-              'text-max-width': '100px'
-            }
-          },
-          {
-            selector: 'node[id="data-engineering"], node[id="software-design"]',
-            style: {
-              'background-color': 'rgba(16, 185, 129, 0.1)',
-              'border-color': '#10b981',
-              'border-width': 3
-            }
-          },
-          {
-            selector: 'node[id="alonso"]',
-            style: {
-              'background-color': 'rgba(245, 158, 11, 0.1)',
-              'border-color': '#f59e0b',
-              'border-width': 3
-            }
-          },
-          {
-            selector: 'edge',
-            style: {
-              'width': 3,
-              'line-color': '#10b981',
-              'target-arrow-color': '#10b981',
-              'target-arrow-shape': 'triangle',
-              'curve-style': 'bezier',
-              'opacity': 0.8
-            }
-          }
-        ],
-        
-        layout: {
-          name: 'dagre',
-          rankDir: 'TB',
-          spacingFactor: 1.5,
-          nodeSep: 50,
-          edgeSep: 20,
-          rankSep: 100
-        }
-      });
-
-      // Add click handlers
-      cy.on('tap', 'node', function(evt) {
-        const node = evt.target;
-        const skillId = node.id();
-        showSkillDetails(skillId);
-      });
-
-      // Make function globally available
-      function showSkillDetails(skillId) {
-        const details = skillDetails[skillId];
-        if (details) {
-          const titleElement = document.getElementById('skillTitle');
-          const descriptionElement = document.getElementById('skillDescription');
-          if (titleElement) {
-            titleElement.textContent = details.title;
-          }
-          if (descriptionElement) {
-            descriptionElement.textContent = details.description;
-          }
-        }
-      }
-
-      window.showSkillDetails = showSkillDetails;
-    }
-  </script>
 </Layout>
