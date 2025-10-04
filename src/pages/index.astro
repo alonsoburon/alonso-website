@@ -370,6 +370,7 @@ function formatDate(dateString: string) {
       flex-shrink: 0;
       backdrop-filter: blur(10px);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      z-index: 2;
     }
 
     .pipeline-node::before {
@@ -485,18 +486,20 @@ function formatDate(dateString: string) {
       display: flex;
       align-items: center;
       position: relative;
-      width: 40px;
+      width: 80px;
       height: 6px;
       flex-shrink: 0;
+      z-index: 1;
     }
 
     .connection-line {
-      width: 100%;
+      width: 200%;
       height: 3px;
       background: linear-gradient(90deg, #334155 0%, #475569 50%, #334155 100%);
       position: relative;
       border-radius: 2px;
       overflow: hidden;
+      left: -50%;
     }
 
     .connection-line::before {
