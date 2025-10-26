@@ -1,58 +1,56 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { openSourceProjects, closedSourceProjects } from '../data/projects';
+
+// Combine all projects and sort by publishedAt (newest first)
+const allProjects = [...openSourceProjects, ...closedSourceProjects]
+  .filter(project => project.publishedAt) // Only include projects with publishedAt
+  .sort((a, b) => {
+    const dateA = a.publishedAt!.getTime();
+    const dateB = b.publishedAt!.getTime();
+    return dateB - dateA; // Newest first
+  });
 ---
 
 <Layout title="Projects" description="A showcase of Alonso Burón's projects.">
   <div class="projects-container">
-    <h2>Open Source Projects</h2>
+    <h2>All Projects</h2>
     <div class="projects-list">
-      <div class="project-item portfolio-showcase">
-        <div class="project-header">
-          <h3><a href="https://github.com/alonsoburon/portfolio-streaming" target="_blank" rel="noopener noreferrer">Real-time E-commerce Analytics Pipeline</a></h3>
-          <span class="project-period">Portfolio Project</span>
-        </div>
-        <p>Complete real-time streaming analytics pipeline featuring Kafka streaming, real-time processing, anomaly detection, and interactive dashboards for e-commerce events.</p>
-        <div class="project-details">
-          <div class="project-achievements">
-            <span>Real-time Processing</span>
-            <span>Anomaly Detection</span>
-            <span>Interactive Dashboard</span>
-            <span>Event Streaming</span>
+      {allProjects.map((project) => (
+        <div class="project-item">
+          <div class="project-header">
+            <h3>
+              {project.githubUrl ? (
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                  {project.title}
+                </a>
+              ) : (
+                project.title
+              )}
+            </h3>
+            <span class="project-period">{project.period}</span>
           </div>
-          <div class="project-tech">
-            <span>Kafka</span>
-            <span>Python</span>
-            <span>Streamlit</span>
-            <span>SQLite</span>
-            <span>Parquet</span>
+          {project.role && <div class="project-role">{project.role}</div>}
+          <p>{project.description}</p>
+          <div class="project-details">
+            <div class="project-achievements">
+              {project.achievements.map((achievement) => (
+                <span>{achievement}</span>
+              ))}
+            </div>
+            {project.tech && (
+              <div class="project-tech">
+                {project.tech.map((tech) => (
+                  <span>{tech}</span>
+                ))}
+              </div>
+            )}
           </div>
+          {project.githubUrl && (
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline">View on GitHub</a>
+          )}
         </div>
-        <a href="https://github.com/alonsoburon/portfolio-streaming" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View on GitHub</a>
-      </div>
-      
-      <div class="project-item portfolio-showcase">
-        <div class="project-header">
-          <h3><a href="https://github.com/alonsoburon/portfolio-batchElt" target="_blank" rel="noopener noreferrer">NYC Taxi Analytics Pipeline</a></h3>
-          <span class="project-period">Portfolio Project</span>
-        </div>
-        <p>Complete ELT pipeline implementing medallion architecture with Dagster, dlt, dbt, DuckDB and Plotly for orchestration, ingestion, transformation, storage and visualization.</p>
-        <div class="project-details">
-          <div class="project-achievements">
-            <span>Medallion Architecture</span>
-            <span>Bronze/Silver/Gold Layers</span>
-            <span>Interactive Dashboard</span>
-            <span>Data Quality Checks</span>
-          </div>
-          <div class="project-tech">
-            <span>Dagster</span>
-            <span>dlt</span>
-            <span>dbt</span>
-            <span>DuckDB</span>
-            <span>Plotly</span>
-          </div>
-        </div>
-        <a href="https://github.com/alonsoburon/portfolio-batchElt" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View on GitHub</a>
-      </div>
+      ))}
     </div>
   </div>
 
@@ -160,23 +158,10 @@ import Layout from '../layouts/Layout.astro';
     }
     .btn-outline {
       background: transparent;
-    }
-    .portfolio-showcase {
-      border-color: #58a6ff;
-      background: rgba(88, 166, 255, 0.05);
-    }
-    .portfolio-showcase h3 a {
-      color: #58a6ff;
-      text-decoration: none;
-    }
-    .portfolio-showcase h3 a:hover {
-      text-decoration: underline;
-    }
-    .portfolio-showcase .btn-outline {
       border-color: #58a6ff;
       color: #58a6ff;
     }
-    .portfolio-showcase .btn-outline:hover {
+    .btn-outline:hover {
       background: #58a6ff;
       color: white;
     }

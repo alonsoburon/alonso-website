@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import { closedSourceProjects, openSourceProjects } from '../data/projects';
 
 const posts = await getCollection('blog');
 const recentPosts = posts.slice(0, 3);
@@ -88,61 +89,69 @@ function formatDate(dateString: string) {
       <!-- Right Column: Projects -->
       <section class="projects-section">
         <h2>Projects</h2>
-        <div class="projects-list">
-          <div class="project-item">
-            <div class="project-header">
-              <h3>Warp Data Platform</h3>
-              <span class="project-period">2024-10 - Now</span>
-            </div>
-            <div class="project-role">Data Engineering Lead</div>
-            <p>Enterprise EtLT solution for multiple On-Site and Cloud-based clients.</p>
-            <div class="project-achievements">
-              <span>Unification of +20 data systems into a single platform</span>
-              <span>Focus on simplifying incremental data loading</span>
-            </div>
-            <!-- <div class="project-tech">
-              <span>Python</span>
-              <span>PostgreSQL</span>
-              <span>Power BI</span>
-              <span>AWS</span>
-            </div> -->
+        
+        <!-- Project Tabs -->
+        <div class="project-tabs">
+          <button class="tab-button active" data-tab="opensource">Open Source</button>
+          <button class="tab-button" data-tab="closedsource">Closed Source</button>
+        </div>
+        
+        <!-- Open Source Projects Tab -->
+        <div class="tab-content active" id="opensource">
+          <div class="projects-list">
+            {openSourceProjects.map((project) => (
+              <div class="project-item opensource-item">
+                <div class="project-header">
+                  <h3>
+                    {project.githubUrl ? (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        {project.title}
+                      </a>
+                    ) : (
+                      project.title
+                    )}
+                  </h3>
+                  <span class="project-period">{project.period}</span>
+                </div>
+                {project.role && <div class="project-role">{project.role}</div>}
+                <p>{project.description}</p>
+                <div class="project-achievements">
+                  {project.achievements.map((achievement) => (
+                    <span>{achievement}</span>
+                  ))}
+                </div>
+                {project.tech && (
+                  <div class="project-tech">
+                    {project.tech.map((tech) => (
+                      <span>{tech}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-          <div class="project-item">
-            <div class="project-header">
-              <h3>HR Multi-Platform Integration</h3>
-              <span class="project-period">2025-03 - 2025-09</span>
-            </div>
-            <div class="project-role">Data Engineer</div>
-            <p>Integrating and homogenizing data from multiple HR platforms into a single star-schema for reporting. (Talana, GeoVictoria, Buk, more)</p>
-            <div class="project-achievements">
-              <span>Integration of multiple REST-APIs</span>
-              <span>Custom gold-level views for different stakeholders</span>
-            </div>
+        </div>
+        
+        <!-- Closed Source Projects Tab -->
+        <div class="tab-content" id="closedsource">
+          <div class="projects-list">
+            {closedSourceProjects.map((project) => (
+              <div class="project-item">
+                <div class="project-header">
+                  <h3>{project.title}</h3>
+                  <span class="project-period">{project.period}</span>
+                </div>
+                {project.role && <div class="project-role">{project.role}</div>}
+                <p>{project.description}</p>
+                <div class="project-achievements">
+                  {project.achievements.map((achievement) => (
+                    <span>{achievement}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-          <div class="project-item">
-            <div class="project-header">
-              <h3>Financial Reporting Template</h3>
-              <span class="project-period">2024-12 - 2025-03</span>
-            </div>
-            <div class="project-role">BI Developer</div>
-            <p>Financial reporting template for internal use.</p>
-            <div class="project-achievements">
-              <span>PowerBI parametrized and automated template</span>
-              <span>Multisource star-schema for SAP B1 systems</span>
-            </div>
-          </div>
-          <div class="project-item">
-            <div class="project-header">
-              <h3>Mining Analytics Platform</h3>
-              <span class="project-period">2024-06 - 2025-06</span>
-            </div>
-            <div class="project-role">BI Developer</div>
-            <p>Analytics platform for mining companies.</p>
-            <div class="project-achievements">
-              <span>Deep visualization platform for a mining company</span>
-              <span>Custom visuals and dashboards with RLS</span>
-            </div>
-          </div>
+        </div>
       </section>
     </div>
 
@@ -312,6 +321,43 @@ function formatDate(dateString: string) {
       font-size: 0.8rem;
     }
 
+    /* Project Tabs */
+    .project-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .tab-button {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .tab-button:hover {
+      color: #f1f5f9;
+    }
+
+    .tab-button.active {
+      color: #58a6ff;
+      border-bottom-color: #58a6ff;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
     /* Projects Section */
     .projects-list {
       display: flex;
@@ -392,6 +438,18 @@ function formatDate(dateString: string) {
       font-size: 0.7rem;
       border: 1px solid rgba(88, 166, 255, 0.2);
     }
+
+    /* Open Source Project Styling */
+    .opensource-item h3 a {
+      color: #f1f5f9;
+      text-decoration: none;
+    }
+
+    .opensource-item h3 a:hover {
+      color: #58a6ff;
+      text-decoration: underline;
+    }
+
 
     /* Responsive */
     @media (max-width: 1200px) {
@@ -510,5 +568,27 @@ function formatDate(dateString: string) {
       }
     }
   </style>
+
+  <script>
+    // Tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function(this: HTMLButtonElement) {
+          const targetTab = (this as HTMLElement).getAttribute('data-tab');
+
+          // Remove active class from all buttons and contents
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(content => content.classList.remove('active'));
+
+          // Add active class to clicked button and corresponding content
+          (this as HTMLElement).classList.add('active');
+          document.getElementById(targetTab as string)?.classList.add('active');
+        });
+      });
+    });
+  </script>
 
 </Layout>
