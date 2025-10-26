@@ -1,7 +1,7 @@
 ---
-title: 'How Thinking About Scalability Got Me Promoted to Team Lead'
+title: 'I got promoted to team lead by thinking about scalability'
 date: '2025-09-15'
-description: 'Demonstrating a scalability-first mindset got me promoted from intern to team lead, here are the hard lessons I learned about managing people'
+description: 'Go for growth, not just technical skills'
 ---
 
 When I started at Datawalt in May 2024 as an **Intern BI Developer**, I had no idea what the company actually did. I just knew they hired me despite my spectacular failure in their technical interview, and I was grateful for the paycheck.

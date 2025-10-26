@@ -4,6 +4,13 @@ import Layout from '../../layouts/Layout.astro';
 
 const posts = await getCollection('blog');
 
+// Sort posts by date (newest first)
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = new Date(a.data.date);
+  const dateB = new Date(b.data.date);
+  return dateB.getTime() - dateA.getTime();
+});
+
 // Function to format dates
 function formatDate(dateString: string) {
   const date = new Date(dateString);
@@ -27,7 +34,7 @@ function formatDate(dateString: string) {
 
     <div class="blog-content">
       <div class="posts-grid">
-        {posts.map((post) => (
+        {sortedPosts.map((post) => (
           <article class="post-card">
             <div class="post-meta">
               <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
@@ -68,6 +75,10 @@ function formatDate(dateString: string) {
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.6;
+    }
+
+    .blog-content {
+      padding: 0 2rem;
     }
 
     .posts-grid {
@@ -161,6 +172,10 @@ function formatDate(dateString: string) {
     @media (max-width: 768px) {
       .blog-header h1 {
         font-size: 2.5rem;
+      }
+
+      .blog-content {
+        padding: 0 1rem;
       }
 
       .posts-grid {

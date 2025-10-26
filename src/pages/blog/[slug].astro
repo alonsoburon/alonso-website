@@ -143,6 +143,132 @@ function formatDate(dateString: string) {
       margin-bottom: 0.5rem;
     }
 
+    /* Table styling - using :global for Astro content */
+    .post-content :global(table) {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: #161b22;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      border: 1px solid #30363d;
+      table-layout: fixed;
+    }
+
+    .post-content :global(th) {
+      background: #21262d;
+      color: #f0f6fc;
+      font-weight: 600;
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 2px solid #30363d;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      position: relative;
+    }
+
+    .post-content :global(th:not(:last-child)) {
+      border-right: 1px solid #30363d;
+    }
+
+    .post-content :global(th:not(:last-child)::after) {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 10%;
+      bottom: 10%;
+      width: 1px;
+      background: linear-gradient(to bottom, 
+        transparent 0%, 
+        #30363d 30%, 
+        #30363d 70%, 
+        transparent 100%);
+      opacity: 0.8;
+    }
+
+    .post-content :global(td) {
+      padding: 1rem;
+      border-bottom: 1px solid #30363d;
+      color: #8b949e;
+      font-size: 0.875rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      position: relative;
+    }
+
+    .post-content :global(td:not(:last-child)) {
+      border-right: 1px solid #30363d;
+    }
+
+    .post-content :global(td:not(:last-child)::after) {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 10%;
+      bottom: 10%;
+      width: 1px;
+      background: linear-gradient(to bottom, 
+        transparent 0%, 
+        #30363d 30%, 
+        #30363d 70%, 
+        transparent 100%);
+      opacity: 0.8;
+    }
+
+    .post-content :global(tr:last-child td) {
+      border-bottom: none;
+    }
+
+    .post-content :global(tr:hover) {
+      background: #1c2128;
+    }
+
+    .post-content :global(tr:hover td) {
+      color: #f0f6fc;
+    }
+
+    .post-content :global(tr:hover td:not(:last-child)::after) {
+      background: linear-gradient(to bottom, 
+        transparent 0%, 
+        #b1bac4 20%, 
+        #b1bac4 80%, 
+        transparent 100%);
+      opacity: 0.7;
+    }
+
+    /* Responsive tables */
+    @media (max-width: 768px) {
+      .post-content :global(table) {
+        font-size: 0.75rem;
+        table-layout: auto;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      
+      .post-content :global(th),
+      .post-content :global(td) {
+        padding: 0.75rem 0.5rem;
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .post-content :global(table) {
+        font-size: 0.7rem;
+      }
+      
+      .post-content :global(th),
+      .post-content :global(td) {
+        padding: 0.5rem 0.25rem;
+      }
+    }
+
     /* Inline code styling only - Shiki handles code blocks */
     .post-content code:not(pre code) {
       background: #21262d;
