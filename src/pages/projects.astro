@@ -3,67 +3,60 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Projects" description="A showcase of Alonso Burón's projects.">
-  {import.meta.env.DEV ? (
-    <div class="projects-container">
-      <h2>Projects Showcase (DEV only)</h2>
-      <div class="projects-list">
-        <div class="project-item portfolio-showcase">
-          <div class="project-header">
-            <h3><a href="https://github.com/alonsoburon/portfolio-batchElt" target="_blank" rel="noopener noreferrer">Batch ELT Pipeline</a></h3>
-            <span class="project-period">Portfolio Project</span>
-          </div>
-          {/* <div class="project-role">Developer</div> */}
-          <p>A complete, end-to-end ELT pipeline to demonstrate modern data engineering principles, featuring a medallion architecture and a production-grade stack.</p>
-          <div class="project-details">
-            <div class="project-achievements">
-              <span>Medallion Architecture</span>
-              <span>Batch ELT Pipeline</span>
-              <span>Infrastructure as Code</span>
-            </div>
-            <div class="project-tech">
-              <span>Dagster</span>
-              <span>dlt</span>
-              <span>BigQuery</span>
-              <span>GCS</span>
-              <span>Iceberg</span>
-            </div>
-          </div>
-          <a href="https://github.com/alonsoburon/portfolio-batchElt" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View on GitHub</a>
+  <div class="projects-container">
+    <h2>Open Source Projects</h2>
+    <div class="projects-list">
+      <div class="project-item portfolio-showcase">
+        <div class="project-header">
+          <h3><a href="https://github.com/alonsoburon/portfolio-streaming" target="_blank" rel="noopener noreferrer">Real-time E-commerce Analytics Pipeline</a></h3>
+          <span class="project-period">Portfolio Project</span>
         </div>
+        <p>Complete real-time streaming analytics pipeline featuring Kafka streaming, real-time processing, anomaly detection, and interactive dashboards for e-commerce events.</p>
+        <div class="project-details">
+          <div class="project-achievements">
+            <span>Real-time Processing</span>
+            <span>Anomaly Detection</span>
+            <span>Interactive Dashboard</span>
+            <span>Event Streaming</span>
+          </div>
+          <div class="project-tech">
+            <span>Kafka</span>
+            <span>Python</span>
+            <span>Streamlit</span>
+            <span>SQLite</span>
+            <span>Parquet</span>
+          </div>
+        </div>
+        <a href="https://github.com/alonsoburon/portfolio-streaming" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View on GitHub</a>
+      </div>
+      
+      <div class="project-item portfolio-showcase">
+        <div class="project-header">
+          <h3><a href="https://github.com/alonsoburon/portfolio-batchElt" target="_blank" rel="noopener noreferrer">NYC Taxi Analytics Pipeline</a></h3>
+          <span class="project-period">Portfolio Project</span>
+        </div>
+        <p>Complete ELT pipeline implementing medallion architecture with Dagster, dlt, dbt, DuckDB and Plotly for orchestration, ingestion, transformation, storage and visualization.</p>
+        <div class="project-details">
+          <div class="project-achievements">
+            <span>Medallion Architecture</span>
+            <span>Bronze/Silver/Gold Layers</span>
+            <span>Interactive Dashboard</span>
+            <span>Data Quality Checks</span>
+          </div>
+          <div class="project-tech">
+            <span>Dagster</span>
+            <span>dlt</span>
+            <span>dbt</span>
+            <span>DuckDB</span>
+            <span>Plotly</span>
+          </div>
+        </div>
+        <a href="https://github.com/alonsoburon/portfolio-batchElt" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View on GitHub</a>
       </div>
     </div>
-  ) : (
-    <div class="under-construction">
-      <div class="icon" aria-hidden="true">🚧</div>
-      <h1>Under Construction</h1>
-      <p>This page is being built. Please check back soon!</p>
-    </div>
-  )}
+  </div>
 
   <style>
-    /* Under Construction Styles */
-    .under-construction {
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    .icon {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      animation: bounce 1.2s infinite alternate;
-    }
-    @keyframes bounce {
-      to { transform: translateY(-10px); }
-    }
-    h1 {
-      font-size: 2rem;
-      margin: 0.5rem 0;
-    }
-
     /* Project Showcase Styles */
     .projects-container {
       max-width: 900px;
